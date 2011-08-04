@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ItemType>PackagingProject</ItemType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F154020-B97F-46CD-AF9C-054B2E48CBE7}</ProjectGuid>
+    <Packages>
+      <Packages>
+        <Package name="Linux binarios">
+          <Builder targetFile="Taquilla-linux.tar.gz" platform="Linux" configuration="Debug|x86" ctype="BinariesZipPackageBuilder">
+            <ChildEntries>
+              <SolutionItemReference path="Taquilla\Taquilla.csproj" />
+            </ChildEntries>
+            <RootEntry path="Taquilla.sln" id=":root:" />
+          </Builder>
+        </Package>
+        <Package name="Microsoft Windows binarios">
+          <Builder targetFile="Taquilla-windows.tar.gz" platform="Windows" configuration="Debug|x86" ctype="BinariesZipPackageBuilder">
+            <ChildEntries>
+              <SolutionItemReference path="Taquilla\Taquilla.csproj" />
+            </ChildEntries>
+            <RootEntry path="Taquilla.sln" id=":root:" />
+          </Builder>
+        </Package>
+        <Package name="Tarball">
+          <Builder TargetDirectory="Taquilla" DefaultConfiguration="Debug|x86" ctype="TarballDeployTarget">
+            <ChildEntries>
+              <SolutionItemReference path="Taquilla\Taquilla.csproj" />
+            </ChildEntries>
+            <RootEntry path="Taquilla.sln" id=":root:" />
+          </Builder>
+        </Package>
+      </Packages>
+    </Packages>
+    <ReleaseVersion />
+  </PropertyGroup>
+</Project>

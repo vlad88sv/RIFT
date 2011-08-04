@@ -1,0 +1,33 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" ctype="Workspace" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Taquilla/MySQL.cs" ctype="Workbench">
+    <Files>
+      <File FileName="Taquilla/VisorEventos.cs" Line="1" Column="1" />
+      <File FileName="Taquilla/Eventos.cs" Line="115" Column="3" />
+      <File FileName="Taquilla/MainWindow.cs" Line="857" Column="8" />
+      <File FileName="Taquilla/Ingresos.cs" Line="6" Column="79" />
+      <File FileName="Taquilla/compras.cs" Line="60" Column="1" />
+      <File FileName="Taquilla/Imprimir.cs" Line="16" Column="30" />
+      <File FileName="Taquilla/MySQL.cs" Line="17" Column="2" />
+      <File FileName="Taquilla/CorteZ.cs" Line="117" Column="35" />
+      <File FileName="Taquilla/cafeteria.cs" Line="35" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Taquilla" expanded="True">
+            <Node name="MySQL.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches ctype="PinnedWatchStore">
+    <Watch file="Taquilla/MainWindow.cs" line="177" offsetX="350" offsetY="2992" expression="iter" liveUpdate="False" />
+    <Watch file="Taquilla/MainWindow.cs" line="177" offsetX="356" offsetY="2800" expression="iter3pm" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <AuthorInfo Name="vladimir" Email="vladimiroski@gmail.com" Copyright="Vladimir Hidalgo" ctype="AuthorInformation" />
+</Properties>
