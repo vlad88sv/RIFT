@@ -80,7 +80,7 @@ public partial class MainWindow : Gtk.Window
 	
 	private void Iniciar()
 	{
-		this.Fullscreen();
+		this.Maximize();
 		
 		/* Proceso que inicia del programa */
 		CrearTreeTiquetes();

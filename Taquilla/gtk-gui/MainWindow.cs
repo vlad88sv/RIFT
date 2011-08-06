@@ -134,9 +134,10 @@ public partial class MainWindow
 		this.WidthRequest = 1366;
 		this.HeightRequest = 768;
 		this.Name = "MainWindow";
-		this.Title = "RIFT Taquilla - Versión 3.2";
+		this.Title = "RIFT Taquilla - Versión 3.3";
 		this.Icon = global::Stetic.IconLoader.LoadIcon (this, "stock_notes", global::Gtk.IconSize.Menu);
 		this.WindowPosition = ((global::Gtk.WindowPosition)(1));
+		this.BorderWidth = ((uint)(10));
 		this.AllowShrink = true;
 		this.DefaultHeight = 600;
 		this.Gravity = ((global::Gdk.Gravity)(5));
