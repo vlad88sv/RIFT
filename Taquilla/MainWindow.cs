@@ -155,9 +155,9 @@ public partial class MainWindow : Gtk.Window
 		tree.Clear();
 		
 		for (int h = 0; h < 65; h++)
-				tree.AppendValues (DateTime.Parse("08:00").AddMinutes(15.0*(double)h).ToString("hh:mm tt",CultureInfo.InvariantCulture),"-","-","-","-","-","-","-","-","-","-","-","-","-","0","13");
+				tree.AppendValues (DateTime.Parse("08:00").AddMinutes(15.0*(double)h).ToString("HH:mm",CultureInfo.InvariantCulture),"-","-","-","-","-","-","-","-","-","-","-","-","-","0","13");
 						
-		string c = "SELECT `fecha_juego`, DATE_FORMAT(`fecha_juego`,'%h:%i %p') AS `hora`, `numero_jugador`, `representacion` FROM `tickets` LEFT JOIN `tipo_boleto` USING(`ID_tipo_boleto`) WHERE DATE(`fecha_juego`) = '" + fechaDiaTrabajoFMySQL + "' AND ID_tipo_boleto <> 11 ORDER BY `fecha_juego` ASC, `numero_jugador` ASC";
+		string c = "SELECT `fecha_juego`, DATE_FORMAT(`fecha_juego`,'%H:%i') AS `hora`, `numero_jugador`, `representacion` FROM `tickets` LEFT JOIN `tipo_boleto` USING(`ID_tipo_boleto`) WHERE DATE(`fecha_juego`) = '" + fechaDiaTrabajoFMySQL + "' AND ID_tipo_boleto <> 11 ORDER BY `fecha_juego` ASC, `numero_jugador` ASC";
 		if (!MySQL.consultar(c))
 			return;
 		
@@ -182,7 +182,7 @@ public partial class MainWindow : Gtk.Window
 		Console.WriteLine("S1:"+(DateTime.Now.TimeOfDay.TotalMilliseconds-benchmark));
 		
 		// Eventos para hoy?. Si por favor.
-		c = "SELECT `eventos`.`ID_evento`, `eventos`.`precio_evento`, `eventos`.`precio_comida`, `eventos`.`precio_cafeteria`, `eventos`.`patrocinado_por`, `eventos`.`nombre_evento`, `eventos`.`notas`, `eventos`.`fecha_evento`,DATE_FORMAT(`eventos`.`hora_inicio`,'%h:%i %p') AS 'fhora_inicio', DATE_FORMAT(`eventos`.`hora_final`,'%h:%i %p') AS 'fhora_final', `eventos`.`agregado_por_usuario` FROM `rift3`.`eventos` WHERE `eventos`.`fecha_evento`='"+fechaDiaTrabajoFMySQL+"' ORDER BY `eventos`.`hora_inicio`";
+		c = "SELECT `eventos`.`ID_evento`, `eventos`.`precio_evento`, `eventos`.`precio_comida`, `eventos`.`precio_cafeteria`, `eventos`.`patrocinado_por`, `eventos`.`nombre_evento`, `eventos`.`notas`, `eventos`.`fecha_evento`,DATE_FORMAT(`eventos`.`hora_inicio`,'%H:%i') AS 'fhora_inicio', DATE_FORMAT(`eventos`.`hora_final`,'%H:%i') AS 'fhora_final', `eventos`.`agregado_por_usuario` FROM `rift3`.`eventos` WHERE `eventos`.`fecha_evento`='"+fechaDiaTrabajoFMySQL+"' ORDER BY `eventos`.`hora_inicio`";
 		MySQL.consultar(c);		
 
 		tree.GetIterFirst(out iter);
@@ -271,7 +271,7 @@ public partial class MainWindow : Gtk.Window
 		Gtk.TreeIter iter = new Gtk.TreeIter();
 		treeTiquetes.Selection.GetSelected(out iter);
 		string fechaDiaTrabajoFMySQL = calDiaTrabajo.Date.ToString("yyyy-MM-dd");
-		string fechaDiaTrabajoMasJuegoFMySQL = calDiaTrabajo.Date.ToString("yyyy-MM-dd") + " " + DateTime.Parse(treeTiquetes.Model.GetValue(iter,0).ToString()).ToString("HH:mm");
+		string fechaDiaTrabajoMasJuegoFMySQL = calDiaTrabajo.Date.ToString("yyyy-MM-dd") + " " + DateTime.Parse(treeTiquetes.Model.GetValue(iter,0).ToString()).ToString("HH:mm:00");
 		string fechaDiaTrabajoMasJuego = calDiaTrabajo.Date.ToString("yyyy-MM-dd") + " " + treeTiquetes.Model.GetValue(iter,0).ToString();
 		string TipoTransaccion = "normal";
 		string diaNumero = "";
@@ -571,7 +571,7 @@ public partial class MainWindow : Gtk.Window
 			case Operacion.Normal:
 							
 				Tiquete += impTiquete.Imprimir("FECHA DE JUEGO:",calDiaTrabajo.Date.ToString("dd/MM/yyyy"));
-				Tiquete += impTiquete.Imprimir("HORA DE JUEGO:", DateTime.Parse(treeTiquetes.Model.GetValue(iter,0).ToString()).ToString("hh:mm tt",CultureInfo.InvariantCulture));
+				Tiquete += impTiquete.Imprimir("HORA DE JUEGO:", DateTime.Parse(treeTiquetes.Model.GetValue(iter,0).ToString()).ToString("HH:mm",CultureInfo.InvariantCulture));
 			
 				//Tiquete += impTiquete.Imprimir("EQUIPO:",(colPos < 7 ?"AZUL" : "ROJO"));
 				//Tiquete += impTiquete.Imprimir("JUGADOR:", colPos.ToString());
