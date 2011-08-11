@@ -10,7 +10,6 @@ public static class MySQL
 	private static MySql.Data.MySqlClient.MySqlConnection MyCon = new MySql.Data.MySqlClient.MySqlConnection(MyConString);
 	private static MySql.Data.MySqlClient.MySqlCommand MyCmd = new MySql.Data.MySqlClient.MySqlCommand();
 	public static MySqlDataReader Reader;
-	
 	static MySQL()
 	{
 		MyCon.Open();
@@ -22,6 +21,7 @@ public static class MySQL
  	public static bool consultar(string query)
 	{
 		double benchmark = DateTime.Now.TimeOfDay.TotalMilliseconds;
+		Console.WriteLine (query);
 		try {
 			if (Reader != null && Reader.IsClosed == false)
 				Reader.Close();
@@ -31,8 +31,7 @@ public static class MySQL
 			Console.WriteLine ("MySQL.Error :: #" + e.Number + " = " + e.Message);
 			Console.WriteLine ("MySQL.Error.query :: " + query);
 			return false;
-		}
-		Console.WriteLine (query);
+		}		
 		Console.WriteLine("MySQL_STAGE0:"+(DateTime.Now.TimeOfDay.TotalMilliseconds-benchmark));
 		return true;
 	}
