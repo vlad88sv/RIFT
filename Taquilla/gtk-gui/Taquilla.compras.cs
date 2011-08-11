@@ -14,7 +14,17 @@ namespace Taquilla
 
 		private global::Gtk.Entry txtComprador;
 
+		private global::Gtk.Label label6;
+
+		private global::Gtk.Entry txtTotalCompra;
+
 		private global::Gtk.HSeparator hseparator2;
+
+		private global::Gtk.Label label1;
+
+		private global::Gtk.ScrolledWindow GtkScrolledWindow;
+
+		private global::Gtk.TextView txtDetalle;
 
 		private global::Gtk.ScrolledWindow GtkScrolledWindow1;
 
@@ -45,6 +55,7 @@ namespace Taquilla
 			this.hbox2.Spacing = 6;
 			// Container child hbox2.Gtk.Box+BoxChild
 			this.vbox2 = new global::Gtk.VBox ();
+			this.vbox2.WidthRequest = 653;
 			this.vbox2.Name = "vbox2";
 			this.vbox2.Spacing = 6;
 			// Container child vbox2.Gtk.Box+BoxChild
@@ -69,22 +80,63 @@ namespace Taquilla
 			this.hbox3.Add (this.txtComprador);
 			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.txtComprador]));
 			w3.Position = 1;
-			this.vbox2.Add (this.hbox3);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hbox3]));
-			w4.Position = 0;
+			// Container child hbox3.Gtk.Box+BoxChild
+			this.label6 = new global::Gtk.Label ();
+			this.label6.Name = "label6";
+			this.label6.LabelProp = "Total compra ($)";
+			this.hbox3.Add (this.label6);
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.label6]));
+			w4.Position = 2;
 			w4.Expand = false;
 			w4.Fill = false;
+			// Container child hbox3.Gtk.Box+BoxChild
+			this.txtTotalCompra = new global::Gtk.Entry ();
+			this.txtTotalCompra.CanFocus = true;
+			this.txtTotalCompra.Name = "txtTotalCompra";
+			this.txtTotalCompra.IsEditable = true;
+			this.txtTotalCompra.InvisibleChar = '•';
+			this.hbox3.Add (this.txtTotalCompra);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.txtTotalCompra]));
+			w5.Position = 3;
+			this.vbox2.Add (this.hbox3);
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hbox3]));
+			w6.Position = 0;
+			w6.Expand = false;
+			w6.Fill = false;
 			// Container child vbox2.Gtk.Box+BoxChild
 			this.hseparator2 = new global::Gtk.HSeparator ();
 			this.hseparator2.Name = "hseparator2";
 			this.vbox2.Add (this.hseparator2);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hseparator2]));
-			w5.Position = 1;
-			w5.Expand = false;
-			w5.Fill = false;
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hseparator2]));
+			w7.Position = 1;
+			w7.Expand = false;
+			w7.Fill = false;
+			// Container child vbox2.Gtk.Box+BoxChild
+			this.label1 = new global::Gtk.Label ();
+			this.label1.Name = "label1";
+			this.label1.LabelProp = "Ingresar detalle de la factura";
+			this.vbox2.Add (this.label1);
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label1]));
+			w8.Position = 2;
+			w8.Expand = false;
+			w8.Fill = false;
+			// Container child vbox2.Gtk.Box+BoxChild
+			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
+			this.GtkScrolledWindow.Name = "GtkScrolledWindow";
+			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
+			// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
+			this.txtDetalle = new global::Gtk.TextView ();
+			this.txtDetalle.CanFocus = true;
+			this.txtDetalle.Name = "txtDetalle";
+			this.GtkScrolledWindow.Add (this.txtDetalle);
+			this.vbox2.Add (this.GtkScrolledWindow);
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.GtkScrolledWindow]));
+			w10.Position = 3;
 			this.hbox2.Add (this.vbox2);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox2]));
-			w6.Position = 0;
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox2]));
+			w11.Position = 0;
+			w11.Expand = false;
+			w11.Fill = false;
 			// Container child hbox2.Gtk.Box+BoxChild
 			this.GtkScrolledWindow1 = new global::Gtk.ScrolledWindow ();
 			this.GtkScrolledWindow1.Name = "GtkScrolledWindow1";
@@ -96,19 +148,19 @@ namespace Taquilla
 			this.tvLista.EnableSearch = false;
 			this.GtkScrolledWindow1.Add (this.tvLista);
 			this.hbox2.Add (this.GtkScrolledWindow1);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.GtkScrolledWindow1]));
-			w8.Position = 1;
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.GtkScrolledWindow1]));
+			w13.Position = 1;
 			w1.Add (this.hbox2);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(w1[this.hbox2]));
-			w9.Position = 0;
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(w1[this.hbox2]));
+			w14.Position = 0;
 			// Container child dialog1_VBox.Gtk.Box+BoxChild
 			this.hseparator1 = new global::Gtk.HSeparator ();
 			this.hseparator1.Name = "hseparator1";
 			w1.Add (this.hseparator1);
-			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(w1[this.hseparator1]));
-			w10.Position = 1;
-			w10.Expand = false;
-			w10.Fill = false;
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(w1[this.hseparator1]));
+			w15.Position = 1;
+			w15.Expand = false;
+			w15.Fill = false;
 			// Container child dialog1_VBox.Gtk.Box+BoxChild
 			this.dialog1_ActionArea1 = new global::Gtk.HButtonBox ();
 			this.dialog1_ActionArea1.Name = "dialog1_ActionArea1";
@@ -116,17 +168,17 @@ namespace Taquilla
 			this.dialog1_ActionArea1.BorderWidth = ((uint)(5));
 			this.dialog1_ActionArea1.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
 			w1.Add (this.dialog1_ActionArea1);
-			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(w1[this.dialog1_ActionArea1]));
-			w11.PackType = ((global::Gtk.PackType)(1));
-			w11.Position = 3;
-			w11.Expand = false;
-			w11.Fill = false;
+			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(w1[this.dialog1_ActionArea1]));
+			w16.PackType = ((global::Gtk.PackType)(1));
+			w16.Position = 3;
+			w16.Expand = false;
+			w16.Fill = false;
 			// Internal child Taquilla.compras.ActionArea
-			global::Gtk.HButtonBox w12 = this.ActionArea;
-			w12.Name = "dialog1_ActionArea";
-			w12.Spacing = 10;
-			w12.BorderWidth = ((uint)(5));
-			w12.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
+			global::Gtk.HButtonBox w17 = this.ActionArea;
+			w17.Name = "dialog1_ActionArea";
+			w17.Spacing = 10;
+			w17.BorderWidth = ((uint)(5));
+			w17.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonCancel = new global::Gtk.Button ();
 			this.buttonCancel.CanDefault = true;
@@ -134,25 +186,25 @@ namespace Taquilla
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.UseUnderline = true;
 			// Container child buttonCancel.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w13 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w18 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
-			global::Gtk.HBox w14 = new global::Gtk.HBox ();
-			w14.Spacing = 2;
+			global::Gtk.HBox w19 = new global::Gtk.HBox ();
+			w19.Spacing = 2;
 			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Image w15 = new global::Gtk.Image ();
-			w15.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-cancel", global::Gtk.IconSize.Menu);
-			w14.Add (w15);
+			global::Gtk.Image w20 = new global::Gtk.Image ();
+			w20.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-cancel", global::Gtk.IconSize.Menu);
+			w19.Add (w20);
 			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Label w17 = new global::Gtk.Label ();
-			w17.LabelProp = "_Cancelar";
-			w17.UseUnderline = true;
-			w14.Add (w17);
-			w13.Add (w14);
-			this.buttonCancel.Add (w13);
+			global::Gtk.Label w22 = new global::Gtk.Label ();
+			w22.LabelProp = "_Cancelar";
+			w22.UseUnderline = true;
+			w19.Add (w22);
+			w18.Add (w19);
+			this.buttonCancel.Add (w18);
 			this.AddActionWidget (this.buttonCancel, -6);
-			global::Gtk.ButtonBox.ButtonBoxChild w21 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w12[this.buttonCancel]));
-			w21.Expand = false;
-			w21.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w26 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w17[this.buttonCancel]));
+			w26.Expand = false;
+			w26.Fill = false;
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.cmdGrabar = new global::Gtk.Button ();
 			this.cmdGrabar.CanDefault = true;
@@ -160,30 +212,30 @@ namespace Taquilla
 			this.cmdGrabar.Name = "cmdGrabar";
 			this.cmdGrabar.UseUnderline = true;
 			// Container child cmdGrabar.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w22 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w27 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
-			global::Gtk.HBox w23 = new global::Gtk.HBox ();
-			w23.Spacing = 2;
+			global::Gtk.HBox w28 = new global::Gtk.HBox ();
+			w28.Spacing = 2;
 			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Image w24 = new global::Gtk.Image ();
-			w24.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-save", global::Gtk.IconSize.Menu);
-			w23.Add (w24);
+			global::Gtk.Image w29 = new global::Gtk.Image ();
+			w29.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-save", global::Gtk.IconSize.Menu);
+			w28.Add (w29);
 			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Label w26 = new global::Gtk.Label ();
-			w26.LabelProp = "_Guardar";
-			w26.UseUnderline = true;
-			w23.Add (w26);
-			w22.Add (w23);
-			this.cmdGrabar.Add (w22);
+			global::Gtk.Label w31 = new global::Gtk.Label ();
+			w31.LabelProp = "_Guardar";
+			w31.UseUnderline = true;
+			w28.Add (w31);
+			w27.Add (w28);
+			this.cmdGrabar.Add (w27);
 			this.AddActionWidget (this.cmdGrabar, 0);
-			global::Gtk.ButtonBox.ButtonBoxChild w30 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w12[this.cmdGrabar]));
-			w30.Position = 1;
-			w30.Expand = false;
-			w30.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w35 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w17[this.cmdGrabar]));
+			w35.Position = 1;
+			w35.Expand = false;
+			w35.Fill = false;
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 1284;
+			this.DefaultWidth = 1028;
 			this.DefaultHeight = 300;
 			this.Show ();
 			this.tvLista.KeyPressEvent += new global::Gtk.KeyPressEventHandler (this.OnTvListaKeyPressEvent);
