@@ -11,7 +11,7 @@ namespace Impresora
 		public void Tiquete (string linea, string ID_ticket, string LPR_Printer, string Titulo)
 		{
 			
-			string Tiquete = "";
+			string Tiquete = "\x1B\x63\x30\x02";
 			if (LPR_Printer == "")
 				LPR_Printer = "EPSON-TEXT";
 			
