@@ -11,10 +11,14 @@ namespace Impresora
 		public void Tiquete (string linea, string ID_ticket, string LPR_Printer, string Titulo)
 		{
 			
-			string Tiquete = "\x1B\x63\x30\x02";
+			string Tiquete = "";
 			if (LPR_Printer == "")
+			{
 				LPR_Printer = "EPSON-TEXT";
-			
+				
+				// Imprimir solo en receipt (solo para EPSON-TEXT porque PDF backend se rompe)
+				Tiquete += "\x1B\x63\x30\x02";
+			}
 			Tiquete += this.Imprimir("RIFT LASER TAG",											1);
 			/*
 			Tiquete += this.Imprimir("CC La Gran Via",											1);
