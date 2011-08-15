@@ -65,19 +65,19 @@ namespace Taquilla
 			                "NOW()," +
 			                auth.ID_usuario +
 			                ")");
-
-					MySQL.consultar("INSERT INTO `cafeteria_ingresos` (`ID_ingreso`, `descripcion`, `comprador`, `ingresado_por`, `fechatiempo`, `total_compra`) " +
-					"VALUES(" +
-							"0, " +
-							"'"+txtDetalle.Buffer.Text+"'," +
-							"'"+txtComprador.Text+"'," +
-							""+auth.ID_usuario+"," +
-							"NOW()," +
-							"'"+txtTotalCompra.Text+"'" +
-							")");
 				}
 			} while(tvLista.Model.IterNext(ref iter));
 		}
+		MySQL.consultar("INSERT INTO `cafeteria_ingresos` (`ID_ingreso`, `descripcion`, `comprador`, `ingresado_por`, `fechatiempo`, `total_compra`) " +
+		"VALUES(" +
+		"0, " +
+		"'"+txtDetalle.Buffer.Text+"'," +
+		"'"+txtComprador.Text+"'," +
+		""+auth.ID_usuario+"," +
+		"NOW()," +
+		"'"+txtTotalCompra.Text+"'" +
+		")");
+
 		Gtk.MessageDialog Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Info, ButtonsType.Close, "Ingreso realizado.\nEsta ventana se cerrará");
 		Mensaje.Title="Éxito";
 		Mensaje.Run();
