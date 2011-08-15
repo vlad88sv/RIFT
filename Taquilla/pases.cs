@@ -22,13 +22,26 @@ namespace Taquilla
 				Mensaje.Destroy();
 				return;
 			}
+
+			string pase_dias_valido = 	Convert.ToInt32(chkLunes.Active).ToString() +
+						  	Convert.ToInt32(chkMartes.Active).ToString() +	
+						  	Convert.ToInt32(chkMiercoles.Active).ToString() +	
+						  	Convert.ToInt32(chkJueves.Active).ToString() +	
+							Convert.ToInt32(chkViernes.Active).ToString() +	
+							Convert.ToInt32(chkSabado.Active).ToString() +	
+							Convert.ToInt32(chkDomingo.Active).ToString();
 			
-			c = "INSERT INTO `pase_razon` (`ID_pase_razon`, `fechatiempo`, `razon`, `cantidad`, `precio`, `caducidad`, `ID_usuario`) VALUES (0, NOW(), '"+txtRazonBoletos.Text+"', '"+txtCantidadDeBoletos.Text+"', '"+txtPrecioBoletos.Text+"', '"+calCaducidad.Date.ToString("yyyy-MM-dd")+"', "+auth.ID_usuario+")";
+			string pase_expiracion = calCaducidad.Date.ToString("yyyy-MM-dd");
+
+			
+			c = "INSERT INTO `pase_razon` (`ID_pase_razon`, `fechatiempo`, `razon`, `cantidad`, `precio`, `caducidad`, `ID_usuario`, `pase_dias_valido`) VALUES (0, NOW(), '"+txtRazonBoletos.Text+"', '"+txtCantidadDeBoletos.Text+"', '"+txtPrecioBoletos.Text+"', '"+pase_expiracion+"', "+auth.ID_usuario+",'"+pase_dias_valido+"')";
 			MySQL.consultar(c);
+			
 			
 			for (int i=0; i<Cantidad; i++)
 			{
-				c = "INSERT INTO tickets (`fecha_juego`,`numero_jugador`,`precio_grabado`,`fecha_vendido`,`ID_tipo_boleto`) VALUES(NOW(), "+i+" , '"+txtPrecioBoletos.Text+"', NOW(), 11)";
+				
+				c = "INSERT INTO tickets (`fecha_juego`,`numero_jugador`,`precio_grabado`,`fecha_vendido`,`ID_tipo_boleto`,`pase_dias_valido`,`pase_expiracion`) VALUES(NOW(), "+i+" , '"+txtPrecioBoletos.Text+"', NOW(), 11, '"+pase_dias_valido+"', '"+pase_expiracion+"')";
 				MySQL.consultar(c);
 				
 				c = "SELECT MAX(ID_ticket) AS Last_ID FROM tickets";
