@@ -445,6 +445,22 @@ public partial class MainWindow : Gtk.Window
 				Mensaje.Destroy();
 				return;
 			}
+			
+			// Verifiquemos si no ha vencido
+			c = "SELECT COUNT(*) AS pase FROM tickets WHERE ID_tipo_boleto=11 && ID_ticket='"+(txtPase.Text)+"' && ((pase_expiracion >= '"+fechaDiaTrabajoFMySQL+"') && (SUBSTRING(pase_dias_valido,"+diaNumero+",1) = '1')) ";
+			MySQL.consultar(c);
+			MySQL.Reader.Read();
+			
+			if (MySQL.Reader["pase"].ToString() == "0")
+			{
+				txtPase.Text = "";
+				MessageDialog Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "Lo siento, este pase ya expiró o no es válido este día.");
+				Mensaje.Title="Error";
+				Mensaje.Run();
+				Mensaje.Destroy();
+				return;
+			}
+		
 		}
 
 		// Restricción para operación cancelación - clave

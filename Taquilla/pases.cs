@@ -23,13 +23,14 @@ namespace Taquilla
 				return;
 			}
 
-			string pase_dias_valido = 	Convert.ToInt32(chkLunes.Active).ToString() +
-						  	Convert.ToInt32(chkMartes.Active).ToString() +	
+			string pase_dias_valido =
+							Convert.ToInt32(chkDomingo.Active).ToString() +
+							Convert.ToInt32(chkLunes.Active).ToString()	+  	
+							Convert.ToInt32(chkMartes.Active).ToString() +	
 						  	Convert.ToInt32(chkMiercoles.Active).ToString() +	
 						  	Convert.ToInt32(chkJueves.Active).ToString() +	
 							Convert.ToInt32(chkViernes.Active).ToString() +	
-							Convert.ToInt32(chkSabado.Active).ToString() +	
-							Convert.ToInt32(chkDomingo.Active).ToString();
+							Convert.ToInt32(chkSabado.Active).ToString();
 			
 			string pase_expiracion = calCaducidad.Date.ToString("yyyy-MM-dd");
 
