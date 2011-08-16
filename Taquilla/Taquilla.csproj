@@ -61,7 +61,7 @@
     <Reference Include="Mono.Posix" />
     <Reference Include="System.Data" />
     <Reference Include="System.Security" />
-    <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+    <Reference Include="MySql.Data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Release\Mysql.Data.dll</HintPath>
     </Reference>
@@ -97,6 +97,7 @@
     <Compile Include="compras.cs" />
     <Compile Include="gtk-gui\Taquilla.compras.cs" />
     <Compile Include="cafeteria.cs" />
+    <Compile Include="gtk-gui\Taquilla.Ingresos.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.desktop" />
