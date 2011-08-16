@@ -33,6 +33,12 @@ namespace Taquilla
 			double TotalDelDia = totalCafeteria+totalEventos+totalJuegos;
 
 			lblTotal.Text = "[COMBINADO: $" + TotalDelDia.ToString("0.00") + "] [JUEGO $" + totalJuegos.ToString("0.00") + "] [EVENTOS $" + totalEventos.ToString("0.00") + "] [CAFETERIA $" + totalCafeteria.ToString("0.00") + "]";
+			
+			MySQL.consultar("SELECT COUNT(*) AS 'numero_de_compras', SUM(total_compra) AS 'total_de_compras' FROM cafeteria_ingresos WHERE DATE(fechatiempo) = '"+fechaDiaTrabajoFMySQL+"'");
+			MySQL.Reader.Read();
+			
+			txtNoCompras.Text = MySQL.Reader["numero_de_compras"].ToString();
+			txtTotalCompras.Text = MySQL.Reader["total_de_compras"].ToString();
 		}
 		
 		protected virtual void OnButtonOkClicked (object sender, System.EventArgs e)

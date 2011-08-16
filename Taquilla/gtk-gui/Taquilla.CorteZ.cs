@@ -184,7 +184,7 @@ namespace Taquilla
 			this.txtNoCompras.CanFocus = true;
 			this.txtNoCompras.Name = "txtNoCompras";
 			this.txtNoCompras.Text = "0";
-			this.txtNoCompras.IsEditable = true;
+			this.txtNoCompras.IsEditable = false;
 			this.txtNoCompras.InvisibleChar = '•';
 			this.table1.Add (this.txtNoCompras);
 			global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1[this.txtNoCompras]));
@@ -198,7 +198,7 @@ namespace Taquilla
 			this.txtTotalCompras.CanFocus = true;
 			this.txtTotalCompras.Name = "txtTotalCompras";
 			this.txtTotalCompras.Text = "0.00";
-			this.txtTotalCompras.IsEditable = true;
+			this.txtTotalCompras.IsEditable = false;
 			this.txtTotalCompras.InvisibleChar = '•';
 			this.table1.Add (this.txtTotalCompras);
 			global::Gtk.Table.TableChild w14 = ((global::Gtk.Table.TableChild)(this.table1[this.txtTotalCompras]));
