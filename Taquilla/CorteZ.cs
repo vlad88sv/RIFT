@@ -146,18 +146,7 @@ namespace Taquilla
 			}
 			
 			Tiquete += "\n\n" + "Total jugadores: "+TotalJugadores+"\n" + "Total Max. jugadores: "+TotalMaxJugadores;
-			
-			if (txtNota1.Text != "")
-				Tiquete += "\n" + txtNota1.Text;
-			if (txtNota2.Text != "")
-				Tiquete += "\n" + txtNota2.Text;
-			if (txtNota3.Text != "")
-				Tiquete += "\n" + txtNota3.Text;
-			if (txtNota4.Text != "")
-				Tiquete += "\n" + txtNota4.Text;
-			if (txtNota5.Text != "")
-				Tiquete += "\n" + txtNota5.Text;
-			
+
 			Tiquete += "\n\n" + "F._________________________\n"+auth.nombre+"\n\n";
 			
 			impTiquete.Tiquete(Tiquete,"9999");
