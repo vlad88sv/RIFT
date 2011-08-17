@@ -123,6 +123,8 @@ public partial class MainWindow
 
 	private global::Gtk.HBox hbox2;
 
+	private global::Gtk.Button btnAnular;
+
 	private global::Gtk.Button btnCancelar;
 
 	private global::Gtk.Button btnImprimir;
@@ -660,7 +662,6 @@ public partial class MainWindow
 		// Container child hbContenedor.Gtk.Box+BoxChild
 		this.Cafeteria = new global::Gtk.VBox ();
 		this.Cafeteria.WidthRequest = 350;
-		this.Cafeteria.Sensitive = false;
 		this.Cafeteria.Name = "Cafeteria";
 		// Container child Cafeteria.Gtk.Box+BoxChild
 		this.vbox1 = new global::Gtk.VBox ();
@@ -745,64 +746,90 @@ public partial class MainWindow
 		this.hbox2.Name = "hbox2";
 		this.hbox2.Spacing = 6;
 		// Container child hbox2.Gtk.Box+BoxChild
-		this.btnCancelar = new global::Gtk.Button ();
-		this.btnCancelar.CanFocus = true;
-		this.btnCancelar.Name = "btnCancelar";
-		this.btnCancelar.UseUnderline = true;
-		// Container child btnCancelar.Gtk.Container+ContainerChild
+		this.btnAnular = new global::Gtk.Button ();
+		this.btnAnular.CanFocus = true;
+		this.btnAnular.Name = "btnAnular";
+		this.btnAnular.UseUnderline = true;
+		// Container child btnAnular.Gtk.Container+ContainerChild
 		global::Gtk.Alignment w58 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
 		// Container child GtkAlignment.Gtk.Container+ContainerChild
 		global::Gtk.HBox w59 = new global::Gtk.HBox ();
 		w59.Spacing = 2;
 		// Container child GtkHBox.Gtk.Container+ContainerChild
 		global::Gtk.Image w60 = new global::Gtk.Image ();
-		w60.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-cancel", global::Gtk.IconSize.Menu);
+		w60.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-delete", global::Gtk.IconSize.Menu);
 		w59.Add (w60);
 		// Container child GtkHBox.Gtk.Container+ContainerChild
 		global::Gtk.Label w62 = new global::Gtk.Label ();
-		w62.LabelProp = "_Cancelar";
+		w62.LabelProp = "_Anular";
 		w62.UseUnderline = true;
 		w59.Add (w62);
 		w58.Add (w59);
-		this.btnCancelar.Add (w58);
-		this.hbox2.Add (this.btnCancelar);
-		global::Gtk.Box.BoxChild w66 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.btnCancelar]));
+		this.btnAnular.Add (w58);
+		this.hbox2.Add (this.btnAnular);
+		global::Gtk.Box.BoxChild w66 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.btnAnular]));
 		w66.Position = 0;
+		w66.Expand = false;
+		w66.Fill = false;
 		// Container child hbox2.Gtk.Box+BoxChild
-		this.btnImprimir = new global::Gtk.Button ();
-		this.btnImprimir.CanFocus = true;
-		this.btnImprimir.Name = "btnImprimir";
-		this.btnImprimir.UseUnderline = true;
-		// Container child btnImprimir.Gtk.Container+ContainerChild
+		this.btnCancelar = new global::Gtk.Button ();
+		this.btnCancelar.CanFocus = true;
+		this.btnCancelar.Name = "btnCancelar";
+		this.btnCancelar.UseUnderline = true;
+		// Container child btnCancelar.Gtk.Container+ContainerChild
 		global::Gtk.Alignment w67 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
 		// Container child GtkAlignment.Gtk.Container+ContainerChild
 		global::Gtk.HBox w68 = new global::Gtk.HBox ();
 		w68.Spacing = 2;
 		// Container child GtkHBox.Gtk.Container+ContainerChild
 		global::Gtk.Image w69 = new global::Gtk.Image ();
-		w69.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-ok", global::Gtk.IconSize.Menu);
+		w69.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-cancel", global::Gtk.IconSize.Menu);
 		w68.Add (w69);
 		// Container child GtkHBox.Gtk.Container+ContainerChild
 		global::Gtk.Label w71 = new global::Gtk.Label ();
-		w71.LabelProp = "_Imprimir";
+		w71.LabelProp = "_Cancelar";
 		w71.UseUnderline = true;
 		w68.Add (w71);
 		w67.Add (w68);
-		this.btnImprimir.Add (w67);
-		this.hbox2.Add (this.btnImprimir);
-		global::Gtk.Box.BoxChild w75 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.btnImprimir]));
+		this.btnCancelar.Add (w67);
+		this.hbox2.Add (this.btnCancelar);
+		global::Gtk.Box.BoxChild w75 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.btnCancelar]));
 		w75.Position = 1;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.btnImprimir = new global::Gtk.Button ();
+		this.btnImprimir.CanFocus = true;
+		this.btnImprimir.Name = "btnImprimir";
+		this.btnImprimir.UseUnderline = true;
+		// Container child btnImprimir.Gtk.Container+ContainerChild
+		global::Gtk.Alignment w76 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+		// Container child GtkAlignment.Gtk.Container+ContainerChild
+		global::Gtk.HBox w77 = new global::Gtk.HBox ();
+		w77.Spacing = 2;
+		// Container child GtkHBox.Gtk.Container+ContainerChild
+		global::Gtk.Image w78 = new global::Gtk.Image ();
+		w78.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-ok", global::Gtk.IconSize.Menu);
+		w77.Add (w78);
+		// Container child GtkHBox.Gtk.Container+ContainerChild
+		global::Gtk.Label w80 = new global::Gtk.Label ();
+		w80.LabelProp = "_Imprimir";
+		w80.UseUnderline = true;
+		w77.Add (w80);
+		w76.Add (w77);
+		this.btnImprimir.Add (w76);
+		this.hbox2.Add (this.btnImprimir);
+		global::Gtk.Box.BoxChild w84 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.btnImprimir]));
+		w84.Position = 2;
 		this.Cafeteria.Add (this.hbox2);
-		global::Gtk.Box.BoxChild w76 = ((global::Gtk.Box.BoxChild)(this.Cafeteria[this.hbox2]));
-		w76.Position = 1;
-		w76.Expand = false;
-		w76.Fill = false;
+		global::Gtk.Box.BoxChild w85 = ((global::Gtk.Box.BoxChild)(this.Cafeteria[this.hbox2]));
+		w85.Position = 1;
+		w85.Expand = false;
+		w85.Fill = false;
 		this.hbContenedor.Add (this.Cafeteria);
-		global::Gtk.Box.BoxChild w77 = ((global::Gtk.Box.BoxChild)(this.hbContenedor[this.Cafeteria]));
-		w77.PackType = ((global::Gtk.PackType)(1));
-		w77.Position = 3;
-		w77.Expand = false;
-		w77.Fill = false;
+		global::Gtk.Box.BoxChild w86 = ((global::Gtk.Box.BoxChild)(this.hbContenedor[this.Cafeteria]));
+		w86.PackType = ((global::Gtk.PackType)(1));
+		w86.Position = 3;
+		w86.Expand = false;
+		w86.Fill = false;
 		this.Add (this.hbContenedor);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -824,6 +851,7 @@ public partial class MainWindow
 		this.cmdStock.Clicked += new global::System.EventHandler (this.OnCmdStockClicked);
 		this.tvLista.KeyPressEvent += new global::Gtk.KeyPressEventHandler (this.OnTvListaKeyPressEvent);
 		this.txtEfectivo.Changed += new global::System.EventHandler (this.OnTxtEfectivoChanged);
+		this.btnAnular.Clicked += new global::System.EventHandler (this.OnBtnAnularClicked);
 		this.btnCancelar.Clicked += new global::System.EventHandler (this.OnBtnCancelarClicked);
 		this.btnImprimir.Clicked += new global::System.EventHandler (this.OnBtnImprimirClicked);
 	}

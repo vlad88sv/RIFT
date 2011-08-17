@@ -2471,14 +2471,14 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.Button" id="btnCancelar1">
+                  <widget class="Gtk.Button" id="btnAnular">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Type">TextAndIcon</property>
                     <property name="Icon">stock:gtk-delete Menu</property>
                     <property name="Label" translatable="yes">_Anular</property>
                     <property name="UseUnderline">True</property>
-                    <signal name="Clicked" handler="OnBtnCancelarClicked" />
+                    <signal name="Clicked" handler="OnBtnAnularClicked" />
                   </widget>
                   <packing>
                     <property name="Position">0</property>

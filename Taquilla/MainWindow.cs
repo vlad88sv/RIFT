@@ -907,6 +907,8 @@ public partial class MainWindow : Gtk.Window
 	    tiquete += impTiquete.Imprimir("Efectivo", "$" + double.Parse(txtEfectivo.Text).ToString("0.00"));
 		tiquete += impTiquete.Imprimir("Cambio:", "$" + (double.Parse(txtEfectivo.Text) - CalcularVentaTotal()).ToString("0.00"));
 
+		tiquete += impTiquete.Imprimir("\nREF:"+ID_ticket.ToString(),1);
+		
 		impTiquete.Tiquete(tiquete,"0000");
 		
 		listaStore.Clear();
@@ -946,4 +948,40 @@ public partial class MainWindow : Gtk.Window
 		return Total;
 	}
 
+	protected virtual void OnBtnAnularClicked (object sender, System.EventArgs e)
+	{
+		MessageDialog Mensaje = null;
+		string Tiquete = "", REF = "", c = "";
+		
+		REF = txtEfectivo.Text;
+		
+		c = "UPDATE `cafeteria_transacciones` SET `cancelado` = 1 WHERE ID_ticket = '"+REF+"'";
+		if (MySQL.consultar(c))
+		{
+			if( MySQL.Reader.RecordsAffected > 0 )
+			{
+				Console.WriteLine("RA:" + MySQL.Reader.RecordsAffected);
+				Tiquete += impTiquete.Imprimir("CANCELACION CAFETERIA",1);
+				Tiquete += impTiquete.Imprimir("REF: "+REF,1);
+				impTiquete.Tiquete(Tiquete, "666");
+		
+				Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "Tiquete anulado");
+				Mensaje.Title="Éxito";
+				Mensaje.Run();
+				Mensaje.Destroy();
+				txtEfectivo.Text = "";
+				return;	
+			}
+		}
+		
+		Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "Tiquete no pudo ser anulado.");
+		Mensaje.Title="Error";
+		Mensaje.Run();
+		Mensaje.Destroy();
+		txtEfectivo.GrabFocus();
+		return;	
+		
+	}
+	
+	
 }
