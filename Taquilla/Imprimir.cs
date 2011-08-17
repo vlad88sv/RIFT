@@ -12,7 +12,6 @@ namespace Impresora
 		{
 			
 			string Tiquete = "";
-			LPR_Printer = "PDF";
 			if (LPR_Printer == "")
 			{
 				LPR_Printer = "EPSON-TEXT";
