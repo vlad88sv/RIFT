@@ -820,8 +820,9 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Dialog" id="Taquilla.CorteZ" design-size="400 312">
+  <widget class="Gtk.Dialog" id="Taquilla.CorteZ" design-size="400 266">
     <property name="MemberName" />
+    <property name="Title" translatable="yes">Modulo Corte Z</property>
     <property name="WindowPosition">CenterAlways</property>
     <property name="Modal">True</property>
     <property name="Buttons">2</property>
@@ -1064,7 +1065,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Text" translatable="yes">0</property>
-                <property name="IsEditable">True</property>
+                <property name="IsEditable">False</property>
                 <property name="InvisibleChar">•</property>
               </widget>
               <packing>
@@ -1087,7 +1088,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Text" translatable="yes">0.00</property>
-                <property name="IsEditable">True</property>
+                <property name="IsEditable">False</property>
                 <property name="InvisibleChar">•</property>
               </widget>
               <packing>
