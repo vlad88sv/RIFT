@@ -41,6 +41,7 @@ namespace Taquilla
 			global::Stetic.Gui.Initialize (this);
 			// Widget Taquilla.CorteZ
 			this.Name = "Taquilla.CorteZ";
+			this.Title = "Modulo Corte Z";
 			this.WindowPosition = ((global::Gtk.WindowPosition)(3));
 			this.Modal = true;
 			// Internal child Taquilla.CorteZ.VBox
@@ -261,7 +262,7 @@ namespace Taquilla
 				this.Child.ShowAll ();
 			}
 			this.DefaultWidth = 400;
-			this.DefaultHeight = 324;
+			this.DefaultHeight = 266;
 			this.Show ();
 			this.txtEfectivo.TextInserted += new global::Gtk.TextInsertedHandler (this.OnTxtEfectivoTextInserted);
 			this.txtCheque.TextInserted += new global::Gtk.TextInsertedHandler (this.OnTxtChequeTextInserted);
