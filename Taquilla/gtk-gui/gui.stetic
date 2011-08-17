@@ -2233,13 +2233,13 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Button" id="Pases">
+                  <widget class="Gtk.Button" id="cmdVerEventos">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">_Pases</property>
+                    <property name="Label" translatable="yes">_Búscar eventos</property>
                     <property name="UseUnderline">True</property>
-                    <signal name="Clicked" handler="OnPasesClicked" />
+                    <signal name="Clicked" handler="OnCmdVerEventosClicked" />
                   </widget>
                   <packing>
                     <property name="Position">2</property>
@@ -2249,13 +2249,13 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Button" id="cmdVerEventos">
+                  <widget class="Gtk.Button" id="Pases">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">_Ver eventos</property>
+                    <property name="Label" translatable="yes">_Generar pases</property>
                     <property name="UseUnderline">True</property>
-                    <signal name="Clicked" handler="OnCmdVerEventosClicked" />
+                    <signal name="Clicked" handler="OnPasesClicked" />
                   </widget>
                   <packing>
                     <property name="Position">3</property>
@@ -2269,7 +2269,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">_Registro</property>
+                    <property name="Label" translatable="yes">_Historial</property>
                     <property name="UseUnderline">True</property>
                     <signal name="Clicked" handler="OnRegistroClicked" />
                   </widget>
@@ -2285,7 +2285,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">_Actualizar</property>
+                    <property name="Label">_Refrescar lista</property>
                     <property name="UseUnderline">True</property>
                     <signal name="Clicked" handler="OnCmdActualizarClicked" />
                   </widget>
@@ -2317,7 +2317,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Type">TextOnly</property>
-                    <property name="Label" translatable="yes">Ingresos</property>
+                    <property name="Label" translatable="yes">compras / inventario</property>
                     <property name="UseUnderline">True</property>
                     <signal name="Clicked" handler="OnCmdStockClicked" />
                   </widget>

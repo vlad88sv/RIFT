@@ -87,9 +87,9 @@ public partial class MainWindow
 
 	private global::Gtk.Button Cumpleanos;
 
-	private global::Gtk.Button Pases;
-
 	private global::Gtk.Button cmdVerEventos;
+
+	private global::Gtk.Button Pases;
 
 	private global::Gtk.Button Registro;
 
@@ -574,24 +574,24 @@ public partial class MainWindow
 		w39.Expand = false;
 		w39.Fill = false;
 		// Container child vbControlesAdmin.Gtk.Box+BoxChild
-		this.Pases = new global::Gtk.Button ();
-		this.Pases.CanFocus = true;
-		this.Pases.Name = "Pases";
-		this.Pases.UseUnderline = true;
-		this.Pases.Label = "_Pases";
-		this.vbControlesAdmin.Add (this.Pases);
-		global::Gtk.Box.BoxChild w40 = ((global::Gtk.Box.BoxChild)(this.vbControlesAdmin[this.Pases]));
-		w40.Position = 2;
-		w40.Expand = false;
-		w40.Fill = false;
-		// Container child vbControlesAdmin.Gtk.Box+BoxChild
 		this.cmdVerEventos = new global::Gtk.Button ();
 		this.cmdVerEventos.CanFocus = true;
 		this.cmdVerEventos.Name = "cmdVerEventos";
 		this.cmdVerEventos.UseUnderline = true;
-		this.cmdVerEventos.Label = "_Ver eventos";
+		this.cmdVerEventos.Label = "_Búscar eventos";
 		this.vbControlesAdmin.Add (this.cmdVerEventos);
-		global::Gtk.Box.BoxChild w41 = ((global::Gtk.Box.BoxChild)(this.vbControlesAdmin[this.cmdVerEventos]));
+		global::Gtk.Box.BoxChild w40 = ((global::Gtk.Box.BoxChild)(this.vbControlesAdmin[this.cmdVerEventos]));
+		w40.Position = 2;
+		w40.Expand = false;
+		w40.Fill = false;
+		// Container child vbControlesAdmin.Gtk.Box+BoxChild
+		this.Pases = new global::Gtk.Button ();
+		this.Pases.CanFocus = true;
+		this.Pases.Name = "Pases";
+		this.Pases.UseUnderline = true;
+		this.Pases.Label = "_Generar pases";
+		this.vbControlesAdmin.Add (this.Pases);
+		global::Gtk.Box.BoxChild w41 = ((global::Gtk.Box.BoxChild)(this.vbControlesAdmin[this.Pases]));
 		w41.Position = 3;
 		w41.Expand = false;
 		w41.Fill = false;
@@ -600,7 +600,7 @@ public partial class MainWindow
 		this.Registro.CanFocus = true;
 		this.Registro.Name = "Registro";
 		this.Registro.UseUnderline = true;
-		this.Registro.Label = "_Registro";
+		this.Registro.Label = "_Historial";
 		this.vbControlesAdmin.Add (this.Registro);
 		global::Gtk.Box.BoxChild w42 = ((global::Gtk.Box.BoxChild)(this.vbControlesAdmin[this.Registro]));
 		w42.Position = 4;
@@ -611,7 +611,7 @@ public partial class MainWindow
 		this.cmdActualizar.CanFocus = true;
 		this.cmdActualizar.Name = "cmdActualizar";
 		this.cmdActualizar.UseUnderline = true;
-		this.cmdActualizar.Label = "_Actualizar";
+		this.cmdActualizar.Label = "_Refrescar lista";
 		this.vbControlesAdmin.Add (this.cmdActualizar);
 		global::Gtk.Box.BoxChild w43 = ((global::Gtk.Box.BoxChild)(this.vbControlesAdmin[this.cmdActualizar]));
 		w43.Position = 5;
@@ -633,7 +633,7 @@ public partial class MainWindow
 		this.cmdStock.CanFocus = true;
 		this.cmdStock.Name = "cmdStock";
 		this.cmdStock.UseUnderline = true;
-		this.cmdStock.Label = "Ingresos";
+		this.cmdStock.Label = "compras / inventario";
 		this.vbControlesAdmin.Add (this.cmdStock);
 		global::Gtk.Box.BoxChild w45 = ((global::Gtk.Box.BoxChild)(this.vbControlesAdmin[this.cmdStock]));
 		w45.Position = 7;
@@ -843,8 +843,8 @@ public partial class MainWindow
 		this.calDiaTrabajo.DaySelected += new global::System.EventHandler (this.OnCalDiaTrabajoDaySelected);
 		this.cmbCorteZ.Clicked += new global::System.EventHandler (this.OnCmbCorteZClicked);
 		this.Cumpleanos.Clicked += new global::System.EventHandler (this.OnCumpleanosClicked);
-		this.Pases.Clicked += new global::System.EventHandler (this.OnPasesClicked);
 		this.cmdVerEventos.Clicked += new global::System.EventHandler (this.OnCmdVerEventosClicked);
+		this.Pases.Clicked += new global::System.EventHandler (this.OnPasesClicked);
 		this.Registro.Clicked += new global::System.EventHandler (this.OnRegistroClicked);
 		this.cmdActualizar.Clicked += new global::System.EventHandler (this.OnCmdActualizarClicked);
 		this.cmdEstadisticas.Clicked += new global::System.EventHandler (this.OnCmdEstadisticasClicked);
