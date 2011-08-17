@@ -853,8 +853,7 @@ public partial class MainWindow : Gtk.Window
 	
 	protected virtual void OnBtnImprimirClicked (object sender, System.EventArgs e)
 	{
-		long ID_ticket = DateTime.Now.Ticks;
-		string tiquete = "";
+		string tiquete = "", ID_ticket = "";
 		
 		if (txtEfectivo.Text == "")
 		{
@@ -874,14 +873,18 @@ public partial class MainWindow : Gtk.Window
 			do {
 				if (tvLista.Model.GetValue(iter,cafeteria.tvLista_Col_Cantidad).ToString() != "0")
 				{
-					MySQL.consultar("INSERT INTO cafeteria_transacciones (`ID_articulo`,  `cantidad`, `precio_grabado`, `fecha`, `ID_ticket`) " +
+					MySQL.consultar("INSERT INTO cafeteria_transacciones (`ID_articulo`,  `cantidad`, `precio_grabado`, `fecha`) " +
 						"VALUES("+
 					             tvLista.Model.GetValue(iter,cafeteria.tvLista_Col_ID_articulo).ToString()+","+
 					             tvLista.Model.GetValue(iter,cafeteria.tvLista_Col_Cantidad).ToString()+","+
 					             tvLista.Model.GetValue(iter,cafeteria.tvLista_Col_Precio).ToString()+","+
-					             "NOW(),"+
-					             ID_ticket+
+					             "NOW()"+
 					    ")");
+					
+					MySQL.consultar("SELECT MAX(ID_transaccion) AS Last_ID FROM cafeteria_transacciones");
+					if(MySQL.Reader.Read())
+						ID_ticket = MySQL.Reader["Last_ID"].ToString();
+
 					
 					Precio = double.Parse(tvLista.Model.GetValue(iter,cafeteria.tvLista_Col_Precio).ToString());
 					tiquete += impTiquete.Imprimir(tvLista.Model.GetValue(iter,cafeteria.tvLista_Col_Cantidad).ToString() + " " + tvLista.Model.GetValue(iter,cafeteria.tvLista_Col_Descripcion).ToString(), "$"+Precio.ToString("0.00"));
@@ -907,7 +910,7 @@ public partial class MainWindow : Gtk.Window
 	    tiquete += impTiquete.Imprimir("Efectivo", "$" + double.Parse(txtEfectivo.Text).ToString("0.00"));
 		tiquete += impTiquete.Imprimir("Cambio:", "$" + (double.Parse(txtEfectivo.Text) - CalcularVentaTotal()).ToString("0.00"));
 
-		impTiquete.Tiquete(tiquete,"0000");
+		impTiquete.Tiquete(tiquete,ID_ticket);
 		
 		listaStore.Clear();
 		CalcularVentaTotal();
