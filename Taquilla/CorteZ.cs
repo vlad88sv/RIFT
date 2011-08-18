@@ -23,7 +23,7 @@ namespace Taquilla
 						    "SELECT " +
 						    "COALESCE((SELECT COALESCE(SUM(precio_grabado),0) FROM tickets WHERE ID_tipo_boleto NOT IN (2,3,4) AND DATE(fecha_vendido) = '" + fechaDiaTrabajoFMySQL + "'),0) AS totalJuegos," +
 						    "COALESCE((SELECT SUM(`eventos`.`precio_evento` + `eventos`.`precio_comida` + `eventos`.`precio_cafeteria`) FROM `rift3`.`eventos` WHERE DATE(`eventos`.`fecha_vendido`)='"+fechaDiaTrabajoFMySQL+"'),0) AS totalEventos," +
-							"COALESCE((SELECT SUM(precio_grabado*cantidad) FROM `cafeteria_transacciones` WHERE DATE(`cafeteria_transacciones`.`fecha`) = '"+fechaDiaTrabajoFMySQL+"'),0) AS totalCafeteria"
+							"COALESCE((SELECT SUM(precio_grabado*cantidad) FROM `cafeteria_transacciones` WHERE cancelado=0 AND DATE(`cafeteria_transacciones`.`fecha`) = '"+fechaDiaTrabajoFMySQL+"'),0) AS totalCafeteria"
 					         );
 			MySQL.Reader.Read();
 			
@@ -59,7 +59,7 @@ namespace Taquilla
 						    "SELECT " +
 						    "COALESCE((SELECT COALESCE(SUM(precio_grabado),0) FROM tickets WHERE ID_tipo_boleto NOT IN (2,3,4) AND DATE(fecha_vendido) = '" + fechaDiaTrabajoFMySQL + "'),0) AS totalJuegos," +
 						    "COALESCE((SELECT SUM(`eventos`.`precio_evento` + `eventos`.`precio_comida` + `eventos`.`precio_cafeteria`) FROM `rift3`.`eventos` WHERE DATE(`eventos`.`fecha_vendido`)='"+fechaDiaTrabajoFMySQL+"'),0) AS totalEventos," +
-							"COALESCE((SELECT SUM(precio_grabado*cantidad) FROM `cafeteria_transacciones` WHERE DATE(`cafeteria_transacciones`.`fecha`) = '"+fechaDiaTrabajoFMySQL+"'),0) AS totalCafeteria"
+							"COALESCE((SELECT SUM(precio_grabado*cantidad) FROM `cafeteria_transacciones` WHERE cancelado=0 AND DATE(`cafeteria_transacciones`.`fecha`) = '"+fechaDiaTrabajoFMySQL+"'),0) AS totalCafeteria"
 					         );
 			MySQL.Reader.Read();
 			
