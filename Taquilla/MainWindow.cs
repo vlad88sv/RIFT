@@ -955,7 +955,7 @@ public partial class MainWindow : Gtk.Window
 		
 		REF = txtEfectivo.Text;
 		
-		c = "UPDATE `cafeteria_transacciones` SET `cancelado` = 1 WHERE ID_ticket = '"+REF+"'";
+		c = "UPDATE `cafeteria_transacciones` SET `precio_grabado`= 0.00, `cancelado` = 1 WHERE ID_ticket = '"+REF+"'";
 		if (MySQL.consultar(c))
 		{
 			if( MySQL.Reader.RecordsAffected > 0 )
