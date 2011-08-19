@@ -110,9 +110,9 @@ namespace Taquilla
 				Tiquete += impTiquete.Imprimir("E:"+MySQL.Reader["ID_evento"].ToString(), MySQL.Reader["precio_evento"].ToString());
 			}
 		
-			
+			// ---------------------------INVENTARIO-------------------------- //
 			Tiquete += impTiquete.Imprimir("\n+- Cafeteria [inventario]-+",1);
-			MySQL.consultar("SELECT descripcion, (COALESCE((SELECT SUM(stock) FROM cafeteria_stock AS cs WHERE cs.ID_articulo=ca.ID_articulo),0) -  COALESCE((SELECT SUM(cantidad) FROM cafeteria_transacciones AS ct WHERE ct.ID_articulo=ca.ID_articulo),0)) AS disponibles FROM `cafeteria_articulos` AS ca ORDER BY `descripcion` ASC");
+			MySQL.consultar("SELECT descripcion, (COALESCE((SELECT SUM(stock) FROM cafeteria_stock AS cs WHERE cs.ID_articulo=ca.ID_articulo),0) -  COALESCE((SELECT SUM(cantidad) FROM cafeteria_transacciones AS ct WHERE cancelado=0 && ct.ID_articulo=ca.ID_articulo),0)) AS disponibles FROM `cafeteria_articulos` AS ca ORDER BY `descripcion` ASC");
 			while (MySQL.Reader.Read()) {
 				Tiquete += impTiquete.Imprimir("[_______] == " + MySQL.Reader["disponibles"].ToString(), MySQL.Reader["descripcion"].ToString());
 			}	
