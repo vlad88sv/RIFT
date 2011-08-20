@@ -39,7 +39,7 @@ namespace Taquilla
 			MySQL.consultar(c);
 			
 			
-			for (int i=0; i<Cantidad; i++)
+			for (int i=100; i<Cantidad; i++)
 			{
 				
 				c = "INSERT INTO tickets (`fecha_juego`,`numero_jugador`,`precio_grabado`,`fecha_vendido`,`ID_tipo_boleto`,`pase_dias_valido`,`pase_expiracion`) VALUES(NOW(), "+i+" , '"+txtPrecioBoletos.Text+"', NOW(), 11, '"+pase_dias_valido+"', '"+pase_expiracion+"')";
