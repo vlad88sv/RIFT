@@ -3,10 +3,7 @@ using Gtk;
 namespace Taquilla
 {
 	public partial class Eventos : Gtk.Window
-	{
-		//MySQL DB = new MySQL();
-		Impresora.Imprimidor impTiquete = new Impresora.Imprimidor();
-		
+	{	
 		protected virtual void OnCmdCancelarClicked (object sender, System.EventArgs e)
 		{
 			this.Destroy();
@@ -83,26 +80,26 @@ namespace Taquilla
 			
 			// Constancia de evento para cliente
 			string Tiquete = "";
-			Tiquete +=  impTiquete.Imprimir ("+- COPIA CLIENTE -+",1);
-			Tiquete +=  impTiquete.Imprimir ("EVENTO ESPECIAL",1);
-			Tiquete +=  impTiquete.Imprimir ("Fecha de evento",fechaEvento);
-			Tiquete +=  impTiquete.Imprimir ("Precio evento","$"+txtPrecioEvento.Text);
-			Tiquete +=  impTiquete.Imprimir ("Hora de inicio",horaInicio);
-			Tiquete +=  impTiquete.Imprimir ("Hora de finalizacion",horaFinal);
+			Tiquete +=  Imprimidor.Imprimir ("+- COPIA CLIENTE -+",1);
+			Tiquete +=  Imprimidor.Imprimir ("EVENTO ESPECIAL",1);
+			Tiquete +=  Imprimidor.Imprimir ("Fecha de evento",fechaEvento);
+			Tiquete +=  Imprimidor.Imprimir ("Precio evento","$"+txtPrecioEvento.Text);
+			Tiquete +=  Imprimidor.Imprimir ("Hora de inicio",horaInicio);
+			Tiquete +=  Imprimidor.Imprimir ("Hora de finalizacion",horaFinal);
 			Tiquete +=  "\n\n\n\n\n__________________\n"+txtPatrocinadoPor.Text+"\n\n\n\n\n__________________\n"+auth.nombre;
-			impTiquete.Tiquete(Tiquete,"8888");
+			Imprimidor.Tiquete(Tiquete,"8888");
 			
 			// Constancia de evento para RIFT
 			Tiquete = "";
-			Tiquete +=  impTiquete.Imprimir ("+- COPIA RIFT -+",1);
-			Tiquete +=  impTiquete.Imprimir ("EVENTO ESPECIAL",1);
-			Tiquete +=  impTiquete.Imprimir ("Fecha de evento",fechaEvento);
-			Tiquete +=  impTiquete.Imprimir ("Precio evento","$"+txtPrecioEvento.Text);
+			Tiquete +=  Imprimidor.Imprimir ("+- COPIA RIFT -+",1);
+			Tiquete +=  Imprimidor.Imprimir ("EVENTO ESPECIAL",1);
+			Tiquete +=  Imprimidor.Imprimir ("Fecha de evento",fechaEvento);
+			Tiquete +=  Imprimidor.Imprimir ("Precio evento","$"+txtPrecioEvento.Text);
 			
-			Tiquete +=  impTiquete.Imprimir ("Hora de inicio",horaInicio);
-			Tiquete +=  impTiquete.Imprimir ("Hora de finalizacion",horaFinal);
+			Tiquete +=  Imprimidor.Imprimir ("Hora de inicio",horaInicio);
+			Tiquete +=  Imprimidor.Imprimir ("Hora de finalizacion",horaFinal);
 			Tiquete +=  "\n\n\n\n\n__________________\n"+txtPatrocinadoPor.Text+"\n\n\n\n\n__________________\n"+auth.nombre;
-			impTiquete.Tiquete(Tiquete,"8888");
+			Imprimidor.Tiquete(Tiquete,"8888");
 			
 			Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Info, ButtonsType.Close, "Evento ingresado.\nEsta ventana se cerrará");
 			Mensaje.Title="Éxito";

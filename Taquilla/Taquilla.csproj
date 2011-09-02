@@ -63,7 +63,7 @@
     <Reference Include="System.Security" />
     <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Descargas\mysql-connector-net-6.4.3-noinstall\v2\MySql.Data.dll</HintPath>
+      <HintPath>bin\Release\MySql.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -80,8 +80,6 @@
     <Compile Include="Imprimir.cs" />
     <Compile Include="Historial.cs" />
     <Compile Include="auth.cs" />
-    <Compile Include="Registro.cs" />
-    <Compile Include="gtk-gui\Taquilla.Registro.cs" />
     <Compile Include="Eventos.cs" />
     <Compile Include="gtk-gui\Taquilla.Eventos.cs" />
     <Compile Include="Estadísticas.cs" />
@@ -97,6 +95,14 @@
     <Compile Include="compras.cs" />
     <Compile Include="gtk-gui\Taquilla.compras.cs" />
     <Compile Include="cafeteria.cs" />
+    <Compile Include="global.cs" />
+    <Compile Include="tiquete.cs" />
+    <Compile Include="cancelacionTiquete.cs" />
+    <Compile Include="gtk-gui\Taquilla.cancelacionTiquete.cs" />
+    <Compile Include="PasePromocion.cs" />
+    <Compile Include="gtk-gui\Taquilla.PasePromocion.cs" />
+    <Compile Include="movimientoTiquete.cs" />
+    <Compile Include="gtk-gui\Taquilla.movimientoTiquete.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.desktop" />

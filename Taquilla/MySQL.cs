@@ -12,6 +12,14 @@ public static class MySQL
 	public static MySqlDataReader Reader;
 	static MySQL()
 	{
+		IniciarConexionMySQL();
+	}
+	
+	private static void IniciarConexionMySQL()
+	{
+		if (MyCon.State == ConnectionState.Open)
+			return;
+		MyCon.Close();
 		MyCon.Open();
 		MyCmd.Connection = MyCon;
 		consultar("set lc_time_names='es_SV';SET NAMES UTF8; SET CHARACTER SET UTF8;");
@@ -19,6 +27,7 @@ public static class MySQL
 	
  	public static bool consultar(string query)
 	{
+		IniciarConexionMySQL();
 		double benchmark = DateTime.Now.TimeOfDay.TotalMilliseconds;
 		Console.WriteLine (query);
 		try {
@@ -28,10 +37,10 @@ public static class MySQL
 			Reader = MyCmd.ExecuteReader();
 		} catch (MySqlException e) {
 			Console.WriteLine ("MySQL.Error :: #" + e.Number + " = " + e.Message);
-			Console.WriteLine ("MySQL.Error.query :: " + query);
+			Console.WriteLine ("MySQL.Error.Query :: " + query);
 			return false;
 		}		
-		Console.WriteLine("MySQL_STAGE0:"+(DateTime.Now.TimeOfDay.TotalMilliseconds-benchmark));
+		Console.WriteLine("MySQL.Benchmark :: " + (DateTime.Now.TimeOfDay.TotalMilliseconds-benchmark));
 		return true;
 	}
 }

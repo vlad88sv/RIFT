@@ -332,7 +332,7 @@ namespace Taquilla
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 521;
+			this.DefaultWidth = 548;
 			this.DefaultHeight = 333;
 			this.Show ();
 			this.buttonCancel.Clicked += new global::System.EventHandler (this.OnButtonCancelClicked);
