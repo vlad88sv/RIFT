@@ -22,7 +22,7 @@ public static class MySQL
 		MyCon.Close();
 		MyCon.Open();
 		MyCmd.Connection = MyCon;
-		consultar("set lc_time_names='es_SV';SET NAMES UTF8; SET CHARACTER SET UTF8;");
+		consultar("SET LC_TIME_NAMES='es_SV'; SET NAMES UTF8; SET CHARACTER SET UTF8;");
 	}
 	
  	public static bool consultar(string query)
@@ -39,7 +39,7 @@ public static class MySQL
 			Console.WriteLine ("MySQL.Error :: #" + e.Number + " = " + e.Message);
 			Console.WriteLine ("MySQL.Error.Query :: " + query);
 			return false;
-		}		
+		}
 		Console.WriteLine("MySQL.Benchmark :: " + (DateTime.Now.TimeOfDay.TotalMilliseconds-benchmark));
 		return true;
 	}
