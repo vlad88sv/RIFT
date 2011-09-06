@@ -6,7 +6,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Debug/Taquilla.exe" internal="true" />
+    <widget-library name="../bin/Release/Taquilla.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="Taquilla.Eventos" design-size="740 383">
     <property name="MemberName" />
@@ -2660,6 +2660,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Pase</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
