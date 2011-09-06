@@ -69,7 +69,8 @@ public static class tiquete
 		
 		switch (Respuesta)
 		{
-			case ResponseType.Close:
+			case ResponseType.DeleteEvent:
+			case ResponseType.Cancel:
 				Resultado.error = true;
 			break;
 			case ResponseType.Ok:

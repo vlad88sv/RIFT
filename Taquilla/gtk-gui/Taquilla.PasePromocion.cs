@@ -48,7 +48,6 @@ namespace Taquilla
 			this.rdoPase = new global::Gtk.RadioButton ("Pase");
 			this.rdoPase.CanFocus = true;
 			this.rdoPase.Name = "rdoPase";
-			this.rdoPase.Active = true;
 			this.rdoPase.DrawIndicator = true;
 			this.rdoPase.UseUnderline = true;
 			this.rdoPase.Group = new global::GLib.SList (global::System.IntPtr.Zero);
