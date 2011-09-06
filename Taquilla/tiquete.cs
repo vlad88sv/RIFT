@@ -45,6 +45,7 @@ public static class tiquete
 
 		switch (Respuesta)
 		{
+			case ResponseType.DeleteEvent:
 			case ResponseType.Close:
 				Resultado.error = true;
 			break;
