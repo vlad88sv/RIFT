@@ -50,6 +50,7 @@ public partial class MainWindow : Gtk.Window
 		
 		hbControles2.Sensitive = false;
 		controles.Sensitive = false;
+		vbControlesAdmin.Sensitive = false;
 		
 		treeTiquetes.RulesHint = true;
 		treeTiquetes.EnableGridLines = TreeViewGridLines.Both;
@@ -57,12 +58,11 @@ public partial class MainWindow : Gtk.Window
 		// Cafetería
 		cafeteria.ConstruirLista(ref tvLista, ref listaStore);		
 		cafeteria.CargarListaCafeteria(ref listaStore);
-
 	}
 	
 	bool ActualizarInterfaz()
 	{
-		lblHoraActual.Markup = "<span  color='red'>"+DateTime.Now.ToString("HH:mm:ss")+"</span>"; 
+		lblHoraActual.Markup = "<span  color='red' size='xx-large'>"+DateTime.Now.ToString("HH:mm:ss")+"</span>"; 
 		lblFechaActual.Markup = "<span color='red'>"+DateTime.Now.ToString("D")+"</span>";
 		return true;
 	}
@@ -148,7 +148,6 @@ public partial class MainWindow : Gtk.Window
 	{
 		global.fechaDiaTrabajoFMySQL = calDiaTrabajo.Date.ToString("yyyy-MM-dd");
 		global.fechaDiaTrabajo = calDiaTrabajo.Date.ToString("dd/MM/yyyy");
-		lblFechaSeleccionada.Markup = "<span color='red'>"+calDiaTrabajo.Date.ToString("D")+"</span>";
 		
 		// Precio base del día y número de día
 		MySQL.consultar("SELECT precio, DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w') AS 'diaN' FROM precios_diarios WHERE dia = DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w')");
@@ -157,6 +156,37 @@ public partial class MainWindow : Gtk.Window
 		global.diaNumero = int.Parse(MySQL.Reader["diaN"].ToString());
 
 		CargarTiquetesDelDia();
+		
+		// Ayudante de precios
+		string AyudantePrecios = "";
+		
+		AyudantePrecios = "<span>1 juego (15 minutos)</span>\n";
+		for (int i = 1; i < 14; i++)
+		{
+			AyudantePrecios += i + " Jugador = $" + (tiquete.PrecioBase * i).ToString("0.00") + "\n";
+		}
+		lbl15.Markup = AyudantePrecios;
+
+		AyudantePrecios = "<span>2 juego (30 minutos)</span>\n";
+		for (int i = 1; i < 14; i++)
+		{
+			AyudantePrecios += i + " Jugador = $" + (tiquete.PrecioBase * i * 2).ToString("0.00") + "\n";
+		}
+		lbl30.Markup = AyudantePrecios;
+		
+		AyudantePrecios = "<span>3 juego (45 minutos)</span>\n";
+		for (int i = 1; i < 14; i++)
+		{
+			AyudantePrecios += i + " Jugador = $" + (tiquete.PrecioBase * i * 3).ToString("0.00") + "\n";
+		}
+		lbl45.Markup = AyudantePrecios;
+		
+		AyudantePrecios = "<span>4 juego (60 minutos)</span>\n";
+		for (int i = 1; i < 14; i++)
+		{
+			AyudantePrecios += i + " Jugador = $" + (tiquete.PrecioBase * i * 4).ToString("0.00") + "\n";
+		}
+		lbl60.Markup = AyudantePrecios;
 	}
 	
 	protected virtual void OnTreeTiquetesKeyPressEvent (object o, Gtk.KeyPressEventArgs args)
@@ -281,7 +311,8 @@ public partial class MainWindow : Gtk.Window
 			hbControles2.Sensitive = false;
 			controles.Sensitive = false;
 			Cafeteria.Sensitive = false;
-			hbControles.Sensitive = true;
+			vbControlesAdmin.Sensitive = false;
+			tblSesion.Sensitive = true;
 			return;
 		}
 		
@@ -309,10 +340,11 @@ public partial class MainWindow : Gtk.Window
 			auth.Autorizado = true;
 			auth.nombre = MySQL.Reader["nombre"].ToString();
 			auth.nivel = MySQL.Reader["nivel"].ToString();
-			hbControles.Sensitive = false;
 			hbControles2.Sensitive = true;
 			controles.Sensitive = true;
 			Cafeteria.Sensitive = true;
+			vbControlesAdmin.Sensitive = true;
+			tblSesion.Sensitive = false;
 			cmdSesion.Label = "Finalizar\n"+MySQL.Reader["usuario"].ToString();
 			
 			// Carguemos los tiquetes
