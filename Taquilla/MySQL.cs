@@ -17,9 +17,15 @@ public static class MySQL
 	
 	private static void IniciarConexionMySQL()
 	{
+		if (Reader != null && Reader.IsClosed == false)
+			Reader.Close();
+		
+		if (MyCon.Ping() == false && MyCon.State == ConnectionState.Open)
+			MyCon.Close();
+		
 		if (MyCon.State == ConnectionState.Open)
 			return;
-		MyCon.Close();
+		
 		MyCon.Open();
 		MyCmd.Connection = MyCon;
 		consultar("SET LC_TIME_NAMES='es_SV'; SET NAMES UTF8; SET CHARACTER SET UTF8;");
@@ -31,8 +37,6 @@ public static class MySQL
 		double benchmark = DateTime.Now.TimeOfDay.TotalMilliseconds;
 		Console.WriteLine (query);
 		try {
-			if (Reader != null && Reader.IsClosed == false)
-				Reader.Close();
 			MyCmd.CommandText = query;
 			Reader = MyCmd.ExecuteReader();
 		} catch (MySqlException e) {
