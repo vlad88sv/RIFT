@@ -5,47 +5,27 @@ namespace Taquilla
 	public partial class pases
 	{
 		private global::Gtk.HBox hbox1;
-
 		private global::Gtk.VBox vbox2;
-
 		private global::Gtk.Label label1;
-
 		private global::Gtk.Entry txtCantidadDeBoletos;
-
 		private global::Gtk.Label label2;
-
 		private global::Gtk.Table table1;
-
 		private global::Gtk.CheckButton chkDomingo;
-
 		private global::Gtk.CheckButton chkJueves;
-
 		private global::Gtk.CheckButton chkLunes;
-
 		private global::Gtk.CheckButton chkMartes;
-
 		private global::Gtk.CheckButton chkMiercoles;
-
 		private global::Gtk.CheckButton chkSabado;
-
 		private global::Gtk.CheckButton chkViernes;
-
 		private global::Gtk.Entry txtPrecioBoletos;
-
 		private global::Gtk.Label label3;
-
 		private global::Gtk.VBox vbox4;
-
 		private global::Gtk.Calendar calCaducidad;
-
 		private global::Gtk.Entry txtRazonBoletos;
-
 		private global::Gtk.Label label4;
-
 		private global::Gtk.Button buttonCancel;
-
 		private global::Gtk.Button buttonOk;
-
+        
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
@@ -70,7 +50,7 @@ namespace Taquilla
 			this.label1.Name = "label1";
 			this.label1.LabelProp = "Cantidad de boletos";
 			this.vbox2.Add (this.label1);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label1]));
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label1]));
 			w2.Position = 0;
 			w2.Expand = false;
 			w2.Fill = false;
@@ -82,7 +62,7 @@ namespace Taquilla
 			this.txtCantidadDeBoletos.IsEditable = true;
 			this.txtCantidadDeBoletos.InvisibleChar = '●';
 			this.vbox2.Add (this.txtCantidadDeBoletos);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.txtCantidadDeBoletos]));
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.txtCantidadDeBoletos]));
 			w3.Position = 1;
 			w3.Expand = false;
 			w3.Fill = false;
@@ -91,7 +71,7 @@ namespace Taquilla
 			this.label2.Name = "label2";
 			this.label2.LabelProp = "Días habilitados";
 			this.vbox2.Add (this.label2);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label2]));
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label2]));
 			w4.Position = 2;
 			w4.Expand = false;
 			w4.Fill = false;
@@ -108,7 +88,7 @@ namespace Taquilla
 			this.chkDomingo.DrawIndicator = true;
 			this.chkDomingo.UseUnderline = true;
 			this.table1.Add (this.chkDomingo);
-			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1[this.chkDomingo]));
+			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkDomingo]));
 			w5.TopAttach = ((uint)(2));
 			w5.BottomAttach = ((uint)(3));
 			w5.YOptions = ((global::Gtk.AttachOptions)(4));
@@ -121,7 +101,7 @@ namespace Taquilla
 			this.chkJueves.DrawIndicator = true;
 			this.chkJueves.UseUnderline = true;
 			this.table1.Add (this.chkJueves);
-			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1[this.chkJueves]));
+			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkJueves]));
 			w6.TopAttach = ((uint)(1));
 			w6.BottomAttach = ((uint)(2));
 			w6.YOptions = ((global::Gtk.AttachOptions)(4));
@@ -134,7 +114,7 @@ namespace Taquilla
 			this.chkLunes.DrawIndicator = true;
 			this.chkLunes.UseUnderline = true;
 			this.table1.Add (this.chkLunes);
-			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1[this.chkLunes]));
+			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkLunes]));
 			w7.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.chkMartes = new global::Gtk.CheckButton ();
@@ -145,7 +125,7 @@ namespace Taquilla
 			this.chkMartes.DrawIndicator = true;
 			this.chkMartes.UseUnderline = true;
 			this.table1.Add (this.chkMartes);
-			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1[this.chkMartes]));
+			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkMartes]));
 			w8.LeftAttach = ((uint)(1));
 			w8.RightAttach = ((uint)(2));
 			w8.YOptions = ((global::Gtk.AttachOptions)(4));
@@ -158,7 +138,7 @@ namespace Taquilla
 			this.chkMiercoles.DrawIndicator = true;
 			this.chkMiercoles.UseUnderline = true;
 			this.table1.Add (this.chkMiercoles);
-			global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.table1[this.chkMiercoles]));
+			global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkMiercoles]));
 			w9.LeftAttach = ((uint)(2));
 			w9.RightAttach = ((uint)(3));
 			w9.YOptions = ((global::Gtk.AttachOptions)(4));
@@ -170,7 +150,7 @@ namespace Taquilla
 			this.chkSabado.DrawIndicator = true;
 			this.chkSabado.UseUnderline = true;
 			this.table1.Add (this.chkSabado);
-			global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.table1[this.chkSabado]));
+			global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkSabado]));
 			w10.TopAttach = ((uint)(1));
 			w10.BottomAttach = ((uint)(2));
 			w10.LeftAttach = ((uint)(2));
@@ -184,14 +164,14 @@ namespace Taquilla
 			this.chkViernes.DrawIndicator = true;
 			this.chkViernes.UseUnderline = true;
 			this.table1.Add (this.chkViernes);
-			global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table1[this.chkViernes]));
+			global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkViernes]));
 			w11.TopAttach = ((uint)(1));
 			w11.BottomAttach = ((uint)(2));
 			w11.LeftAttach = ((uint)(1));
 			w11.RightAttach = ((uint)(2));
 			w11.YOptions = ((global::Gtk.AttachOptions)(4));
 			this.vbox2.Add (this.table1);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.table1]));
+			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.table1]));
 			w12.Position = 3;
 			w12.Expand = false;
 			w12.Fill = false;
@@ -203,7 +183,7 @@ namespace Taquilla
 			this.txtPrecioBoletos.IsEditable = true;
 			this.txtPrecioBoletos.InvisibleChar = '●';
 			this.vbox2.Add (this.txtPrecioBoletos);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.txtPrecioBoletos]));
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.txtPrecioBoletos]));
 			w13.PackType = ((global::Gtk.PackType)(1));
 			w13.Position = 4;
 			w13.Expand = false;
@@ -213,13 +193,13 @@ namespace Taquilla
 			this.label3.Name = "label3";
 			this.label3.LabelProp = "Precio boletos";
 			this.vbox2.Add (this.label3);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label3]));
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label3]));
 			w14.PackType = ((global::Gtk.PackType)(1));
 			w14.Position = 5;
 			w14.Expand = false;
 			w14.Fill = false;
 			this.hbox1.Add (this.vbox2);
-			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox2]));
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.vbox2]));
 			w15.Position = 0;
 			w15.Expand = false;
 			w15.Fill = false;
@@ -234,7 +214,7 @@ namespace Taquilla
 			this.calCaducidad.Name = "calCaducidad";
 			this.calCaducidad.DisplayOptions = ((global::Gtk.CalendarDisplayOptions)(35));
 			this.vbox4.Add (this.calCaducidad);
-			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.calCaducidad]));
+			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.calCaducidad]));
 			w16.Position = 0;
 			w16.Expand = false;
 			w16.Fill = false;
@@ -245,7 +225,7 @@ namespace Taquilla
 			this.txtRazonBoletos.IsEditable = true;
 			this.txtRazonBoletos.InvisibleChar = '●';
 			this.vbox4.Add (this.txtRazonBoletos);
-			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.txtRazonBoletos]));
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.txtRazonBoletos]));
 			w17.PackType = ((global::Gtk.PackType)(1));
 			w17.Position = 1;
 			w17.Expand = false;
@@ -255,18 +235,18 @@ namespace Taquilla
 			this.label4.Name = "label4";
 			this.label4.LabelProp = "Razón boletos";
 			this.vbox4.Add (this.label4);
-			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label4]));
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.label4]));
 			w18.PackType = ((global::Gtk.PackType)(1));
 			w18.Position = 2;
 			w18.Expand = false;
 			w18.Fill = false;
 			this.hbox1.Add (this.vbox4);
-			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox4]));
+			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.vbox4]));
 			w19.Position = 1;
 			w19.Expand = false;
 			w19.Fill = false;
 			w1.Add (this.hbox1);
-			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(w1[this.hbox1]));
+			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(w1 [this.hbox1]));
 			w20.Position = 0;
 			w20.Expand = false;
 			w20.Fill = false;
@@ -283,7 +263,7 @@ namespace Taquilla
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.UseUnderline = true;
 			// Container child buttonCancel.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w22 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w22 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
 			global::Gtk.HBox w23 = new global::Gtk.HBox ();
 			w23.Spacing = 2;
@@ -299,7 +279,7 @@ namespace Taquilla
 			w22.Add (w23);
 			this.buttonCancel.Add (w22);
 			this.AddActionWidget (this.buttonCancel, -6);
-			global::Gtk.ButtonBox.ButtonBoxChild w30 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w21[this.buttonCancel]));
+			global::Gtk.ButtonBox.ButtonBoxChild w30 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w21 [this.buttonCancel]));
 			w30.Expand = false;
 			w30.Fill = false;
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
@@ -309,7 +289,7 @@ namespace Taquilla
 			this.buttonOk.Name = "buttonOk";
 			this.buttonOk.UseUnderline = true;
 			// Container child buttonOk.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w31 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w31 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
 			global::Gtk.HBox w32 = new global::Gtk.HBox ();
 			w32.Spacing = 2;
@@ -325,7 +305,7 @@ namespace Taquilla
 			w31.Add (w32);
 			this.buttonOk.Add (w31);
 			this.AddActionWidget (this.buttonOk, -5);
-			global::Gtk.ButtonBox.ButtonBoxChild w39 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w21[this.buttonOk]));
+			global::Gtk.ButtonBox.ButtonBoxChild w39 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w21 [this.buttonOk]));
 			w39.Position = 1;
 			w39.Expand = false;
 			w39.Fill = false;

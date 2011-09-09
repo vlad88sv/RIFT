@@ -5,57 +5,32 @@ namespace Taquilla
 	public partial class Eventos
 	{
 		private global::Gtk.VBox vbox2;
-
 		private global::Gtk.Label label10;
-
 		private global::Gtk.HBox hbox1;
-
 		private global::Gtk.Button cmdCancelar;
-
 		private global::Gtk.Button cmdProgramar;
-
 		private global::Gtk.Button cmdPagos1;
-
 		private global::Gtk.Button cmdPagos;
-
 		private global::Gtk.HBox hbox2;
-
 		private global::Gtk.Table table1;
-
 		private global::Gtk.ComboBox cmdHoraFinal;
-
 		private global::Gtk.ComboBox cmdHoraInicio;
-
 		private global::Gtk.Label label11;
-
 		private global::Gtk.Label label2;
-
 		private global::Gtk.Label label6;
-
 		private global::Gtk.Label label7;
-
 		private global::Gtk.Label lblAnfitrion;
-
 		private global::Gtk.Label lblAnfitrion1;
-
 		private global::Gtk.Label lblAnfitrion3;
-
 		private global::Gtk.Label lblNombreUsuario;
-
 		private global::Gtk.Entry txtinfoContacto;
-
 		private global::Gtk.Entry txtNombreEvento;
-
 		private global::Gtk.Entry txtPatrocinadoPor;
-
 		private global::Gtk.Entry txtPrecioEvento;
-
 		private global::Gtk.VBox vbox4;
-
 		private global::Gtk.Label label4;
-
 		private global::Gtk.Calendar calFechaEvento;
-
+        
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
@@ -76,7 +51,7 @@ namespace Taquilla
 			this.label10.LabelProp = "Nota: favor antes de programar el evento verificar disponibilidad, especialmente si es un cambio de hora.\nIngresar precio de evento/abono sin simbolo de dolar ($) y en el formato <b>0.00</b>";
 			this.label10.UseMarkup = true;
 			this.vbox2.Add (this.label10);
-			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label10]));
+			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label10]));
 			w1.Position = 0;
 			w1.Expand = false;
 			w1.Fill = false;
@@ -90,7 +65,7 @@ namespace Taquilla
 			this.cmdCancelar.Name = "cmdCancelar";
 			this.cmdCancelar.UseUnderline = true;
 			// Container child cmdCancelar.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w2 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w2 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
 			global::Gtk.HBox w3 = new global::Gtk.HBox ();
 			w3.Spacing = 2;
@@ -106,7 +81,7 @@ namespace Taquilla
 			w2.Add (w3);
 			this.cmdCancelar.Add (w2);
 			this.hbox1.Add (this.cmdCancelar);
-			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.cmdCancelar]));
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.cmdCancelar]));
 			w10.Position = 0;
 			w10.Expand = false;
 			w10.Fill = false;
@@ -116,7 +91,7 @@ namespace Taquilla
 			this.cmdProgramar.Name = "cmdProgramar";
 			this.cmdProgramar.UseUnderline = true;
 			// Container child cmdProgramar.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w11 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w11 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
 			global::Gtk.HBox w12 = new global::Gtk.HBox ();
 			w12.Spacing = 2;
@@ -132,7 +107,7 @@ namespace Taquilla
 			w11.Add (w12);
 			this.cmdProgramar.Add (w11);
 			this.hbox1.Add (this.cmdProgramar);
-			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.cmdProgramar]));
+			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.cmdProgramar]));
 			w19.PackType = ((global::Gtk.PackType)(1));
 			w19.Position = 1;
 			w19.Expand = false;
@@ -144,7 +119,7 @@ namespace Taquilla
 			this.cmdPagos1.Name = "cmdPagos1";
 			this.cmdPagos1.UseUnderline = true;
 			// Container child cmdPagos1.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w20 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w20 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
 			global::Gtk.HBox w21 = new global::Gtk.HBox ();
 			w21.Spacing = 2;
@@ -160,7 +135,7 @@ namespace Taquilla
 			w20.Add (w21);
 			this.cmdPagos1.Add (w20);
 			this.hbox1.Add (this.cmdPagos1);
-			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.cmdPagos1]));
+			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.cmdPagos1]));
 			w28.PackType = ((global::Gtk.PackType)(1));
 			w28.Position = 2;
 			w28.Expand = false;
@@ -172,7 +147,7 @@ namespace Taquilla
 			this.cmdPagos.Name = "cmdPagos";
 			this.cmdPagos.UseUnderline = true;
 			// Container child cmdPagos.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w29 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w29 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
 			global::Gtk.HBox w30 = new global::Gtk.HBox ();
 			w30.Spacing = 2;
@@ -188,13 +163,13 @@ namespace Taquilla
 			w29.Add (w30);
 			this.cmdPagos.Add (w29);
 			this.hbox1.Add (this.cmdPagos);
-			global::Gtk.Box.BoxChild w37 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.cmdPagos]));
+			global::Gtk.Box.BoxChild w37 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.cmdPagos]));
 			w37.PackType = ((global::Gtk.PackType)(1));
 			w37.Position = 3;
 			w37.Expand = false;
 			w37.Fill = false;
 			this.vbox2.Add (this.hbox1);
-			global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hbox1]));
+			global::Gtk.Box.BoxChild w38 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hbox1]));
 			w38.PackType = ((global::Gtk.PackType)(1));
 			w38.Position = 1;
 			w38.Expand = false;
@@ -212,7 +187,7 @@ namespace Taquilla
 			this.cmdHoraFinal.TooltipMarkup = "NO es la hora a la que comienza el último juego,\nsino la hora en la que TERMINA el evento.";
 			this.cmdHoraFinal.Name = "cmdHoraFinal";
 			this.table1.Add (this.cmdHoraFinal);
-			global::Gtk.Table.TableChild w39 = ((global::Gtk.Table.TableChild)(this.table1[this.cmdHoraFinal]));
+			global::Gtk.Table.TableChild w39 = ((global::Gtk.Table.TableChild)(this.table1 [this.cmdHoraFinal]));
 			w39.TopAttach = ((uint)(5));
 			w39.BottomAttach = ((uint)(6));
 			w39.LeftAttach = ((uint)(1));
@@ -224,7 +199,7 @@ namespace Taquilla
 			this.cmdHoraInicio.TooltipMarkup = "Hora del primer juego del evento";
 			this.cmdHoraInicio.Name = "cmdHoraInicio";
 			this.table1.Add (this.cmdHoraInicio);
-			global::Gtk.Table.TableChild w40 = ((global::Gtk.Table.TableChild)(this.table1[this.cmdHoraInicio]));
+			global::Gtk.Table.TableChild w40 = ((global::Gtk.Table.TableChild)(this.table1 [this.cmdHoraInicio]));
 			w40.TopAttach = ((uint)(4));
 			w40.BottomAttach = ((uint)(5));
 			w40.LeftAttach = ((uint)(1));
@@ -236,7 +211,7 @@ namespace Taquilla
 			this.label11.Name = "label11";
 			this.label11.LabelProp = "Hora de inicio del primer juego";
 			this.table1.Add (this.label11);
-			global::Gtk.Table.TableChild w41 = ((global::Gtk.Table.TableChild)(this.table1[this.label11]));
+			global::Gtk.Table.TableChild w41 = ((global::Gtk.Table.TableChild)(this.table1 [this.label11]));
 			w41.TopAttach = ((uint)(4));
 			w41.BottomAttach = ((uint)(5));
 			w41.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -244,10 +219,10 @@ namespace Taquilla
 			// Container child table1.Gtk.Table+TableChild
 			this.label2 = new global::Gtk.Label ();
 			this.label2.Name = "label2";
-			this.label2.Xalign = 1f;
+			this.label2.Xalign = 1F;
 			this.label2.LabelProp = "Nombre del evento";
 			this.table1.Add (this.label2);
-			global::Gtk.Table.TableChild w42 = ((global::Gtk.Table.TableChild)(this.table1[this.label2]));
+			global::Gtk.Table.TableChild w42 = ((global::Gtk.Table.TableChild)(this.table1 [this.label2]));
 			w42.TopAttach = ((uint)(3));
 			w42.BottomAttach = ((uint)(4));
 			w42.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -255,10 +230,10 @@ namespace Taquilla
 			// Container child table1.Gtk.Table+TableChild
 			this.label6 = new global::Gtk.Label ();
 			this.label6.Name = "label6";
-			this.label6.Xalign = 1f;
+			this.label6.Xalign = 1F;
 			this.label6.LabelProp = "Evento creado por";
 			this.table1.Add (this.label6);
-			global::Gtk.Table.TableChild w43 = ((global::Gtk.Table.TableChild)(this.table1[this.label6]));
+			global::Gtk.Table.TableChild w43 = ((global::Gtk.Table.TableChild)(this.table1 [this.label6]));
 			w43.TopAttach = ((uint)(6));
 			w43.BottomAttach = ((uint)(7));
 			w43.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -268,7 +243,7 @@ namespace Taquilla
 			this.label7.Name = "label7";
 			this.label7.LabelProp = "Hora de finalización del último juego";
 			this.table1.Add (this.label7);
-			global::Gtk.Table.TableChild w44 = ((global::Gtk.Table.TableChild)(this.table1[this.label7]));
+			global::Gtk.Table.TableChild w44 = ((global::Gtk.Table.TableChild)(this.table1 [this.label7]));
 			w44.TopAttach = ((uint)(5));
 			w44.BottomAttach = ((uint)(6));
 			w44.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -276,10 +251,10 @@ namespace Taquilla
 			// Container child table1.Gtk.Table+TableChild
 			this.lblAnfitrion = new global::Gtk.Label ();
 			this.lblAnfitrion.Name = "lblAnfitrion";
-			this.lblAnfitrion.Xalign = 1f;
+			this.lblAnfitrion.Xalign = 1F;
 			this.lblAnfitrion.LabelProp = "Patrocinado por";
 			this.table1.Add (this.lblAnfitrion);
-			global::Gtk.Table.TableChild w45 = ((global::Gtk.Table.TableChild)(this.table1[this.lblAnfitrion]));
+			global::Gtk.Table.TableChild w45 = ((global::Gtk.Table.TableChild)(this.table1 [this.lblAnfitrion]));
 			w45.TopAttach = ((uint)(1));
 			w45.BottomAttach = ((uint)(2));
 			w45.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -287,19 +262,19 @@ namespace Taquilla
 			// Container child table1.Gtk.Table+TableChild
 			this.lblAnfitrion1 = new global::Gtk.Label ();
 			this.lblAnfitrion1.Name = "lblAnfitrion1";
-			this.lblAnfitrion1.Xalign = 1f;
+			this.lblAnfitrion1.Xalign = 1F;
 			this.lblAnfitrion1.LabelProp = "Precio evento ($)";
 			this.table1.Add (this.lblAnfitrion1);
-			global::Gtk.Table.TableChild w46 = ((global::Gtk.Table.TableChild)(this.table1[this.lblAnfitrion1]));
+			global::Gtk.Table.TableChild w46 = ((global::Gtk.Table.TableChild)(this.table1 [this.lblAnfitrion1]));
 			w46.XOptions = ((global::Gtk.AttachOptions)(4));
 			w46.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.lblAnfitrion3 = new global::Gtk.Label ();
 			this.lblAnfitrion3.Name = "lblAnfitrion3";
-			this.lblAnfitrion3.Xalign = 1f;
+			this.lblAnfitrion3.Xalign = 1F;
 			this.lblAnfitrion3.LabelProp = "Inf. contacto";
 			this.table1.Add (this.lblAnfitrion3);
-			global::Gtk.Table.TableChild w47 = ((global::Gtk.Table.TableChild)(this.table1[this.lblAnfitrion3]));
+			global::Gtk.Table.TableChild w47 = ((global::Gtk.Table.TableChild)(this.table1 [this.lblAnfitrion3]));
 			w47.TopAttach = ((uint)(2));
 			w47.BottomAttach = ((uint)(3));
 			w47.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -307,9 +282,9 @@ namespace Taquilla
 			// Container child table1.Gtk.Table+TableChild
 			this.lblNombreUsuario = new global::Gtk.Label ();
 			this.lblNombreUsuario.Name = "lblNombreUsuario";
-			this.lblNombreUsuario.Xalign = 0f;
+			this.lblNombreUsuario.Xalign = 0F;
 			this.table1.Add (this.lblNombreUsuario);
-			global::Gtk.Table.TableChild w48 = ((global::Gtk.Table.TableChild)(this.table1[this.lblNombreUsuario]));
+			global::Gtk.Table.TableChild w48 = ((global::Gtk.Table.TableChild)(this.table1 [this.lblNombreUsuario]));
 			w48.TopAttach = ((uint)(6));
 			w48.BottomAttach = ((uint)(7));
 			w48.LeftAttach = ((uint)(1));
@@ -324,7 +299,7 @@ namespace Taquilla
 			this.txtinfoContacto.IsEditable = true;
 			this.txtinfoContacto.InvisibleChar = '•';
 			this.table1.Add (this.txtinfoContacto);
-			global::Gtk.Table.TableChild w49 = ((global::Gtk.Table.TableChild)(this.table1[this.txtinfoContacto]));
+			global::Gtk.Table.TableChild w49 = ((global::Gtk.Table.TableChild)(this.table1 [this.txtinfoContacto]));
 			w49.TopAttach = ((uint)(2));
 			w49.BottomAttach = ((uint)(3));
 			w49.LeftAttach = ((uint)(1));
@@ -339,7 +314,7 @@ namespace Taquilla
 			this.txtNombreEvento.IsEditable = true;
 			this.txtNombreEvento.InvisibleChar = '•';
 			this.table1.Add (this.txtNombreEvento);
-			global::Gtk.Table.TableChild w50 = ((global::Gtk.Table.TableChild)(this.table1[this.txtNombreEvento]));
+			global::Gtk.Table.TableChild w50 = ((global::Gtk.Table.TableChild)(this.table1 [this.txtNombreEvento]));
 			w50.TopAttach = ((uint)(3));
 			w50.BottomAttach = ((uint)(4));
 			w50.LeftAttach = ((uint)(1));
@@ -353,7 +328,7 @@ namespace Taquilla
 			this.txtPatrocinadoPor.IsEditable = true;
 			this.txtPatrocinadoPor.InvisibleChar = '•';
 			this.table1.Add (this.txtPatrocinadoPor);
-			global::Gtk.Table.TableChild w51 = ((global::Gtk.Table.TableChild)(this.table1[this.txtPatrocinadoPor]));
+			global::Gtk.Table.TableChild w51 = ((global::Gtk.Table.TableChild)(this.table1 [this.txtPatrocinadoPor]));
 			w51.TopAttach = ((uint)(1));
 			w51.BottomAttach = ((uint)(2));
 			w51.LeftAttach = ((uint)(1));
@@ -367,13 +342,13 @@ namespace Taquilla
 			this.txtPrecioEvento.IsEditable = true;
 			this.txtPrecioEvento.InvisibleChar = '•';
 			this.table1.Add (this.txtPrecioEvento);
-			global::Gtk.Table.TableChild w52 = ((global::Gtk.Table.TableChild)(this.table1[this.txtPrecioEvento]));
+			global::Gtk.Table.TableChild w52 = ((global::Gtk.Table.TableChild)(this.table1 [this.txtPrecioEvento]));
 			w52.LeftAttach = ((uint)(1));
 			w52.RightAttach = ((uint)(2));
 			w52.XOptions = ((global::Gtk.AttachOptions)(4));
 			w52.YOptions = ((global::Gtk.AttachOptions)(4));
 			this.hbox2.Add (this.table1);
-			global::Gtk.Box.BoxChild w53 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.table1]));
+			global::Gtk.Box.BoxChild w53 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.table1]));
 			w53.Position = 0;
 			// Container child hbox2.Gtk.Box+BoxChild
 			this.vbox4 = new global::Gtk.VBox ();
@@ -384,7 +359,7 @@ namespace Taquilla
 			this.label4.Name = "label4";
 			this.label4.LabelProp = "Fecha de evento";
 			this.vbox4.Add (this.label4);
-			global::Gtk.Box.BoxChild w54 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label4]));
+			global::Gtk.Box.BoxChild w54 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.label4]));
 			w54.Position = 0;
 			w54.Expand = false;
 			w54.Fill = false;
@@ -394,17 +369,17 @@ namespace Taquilla
 			this.calFechaEvento.Name = "calFechaEvento";
 			this.calFechaEvento.DisplayOptions = ((global::Gtk.CalendarDisplayOptions)(35));
 			this.vbox4.Add (this.calFechaEvento);
-			global::Gtk.Box.BoxChild w55 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.calFechaEvento]));
+			global::Gtk.Box.BoxChild w55 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.calFechaEvento]));
 			w55.Position = 1;
 			w55.Expand = false;
 			w55.Fill = false;
 			this.hbox2.Add (this.vbox4);
-			global::Gtk.Box.BoxChild w56 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox4]));
+			global::Gtk.Box.BoxChild w56 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.vbox4]));
 			w56.Position = 1;
 			w56.Expand = false;
 			w56.Fill = false;
 			this.vbox2.Add (this.hbox2);
-			global::Gtk.Box.BoxChild w57 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hbox2]));
+			global::Gtk.Box.BoxChild w57 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hbox2]));
 			w57.PackType = ((global::Gtk.PackType)(1));
 			w57.Position = 2;
 			this.Add (this.vbox2);

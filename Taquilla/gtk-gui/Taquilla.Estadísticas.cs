@@ -5,35 +5,21 @@ namespace Taquilla
 	public partial class Estadísticas
 	{
 		private global::Gtk.ScrolledWindow scrolledwindow1;
-
 		private global::Gtk.VBox vbox2;
-
 		private global::Gtk.Label label2;
-
 		private global::Gtk.ScrolledWindow GtkScrolledWindow;
-
 		private global::Gtk.TreeView treeDia;
-
 		private global::Gtk.Label label3;
-
 		private global::Gtk.ScrolledWindow GtkScrolledWindow1;
-
 		private global::Gtk.TreeView treeMes;
-
 		private global::Gtk.Label label4;
-
 		private global::Gtk.ScrolledWindow GtkScrolledWindow2;
-
 		private global::Gtk.TreeView treeHora;
-
 		private global::Gtk.Label label5;
-
 		private global::Gtk.ScrolledWindow GtkScrolledWindow3;
-
 		private global::Gtk.TreeView treeDiario;
-
 		private global::Gtk.Button buttonOk;
-
+        
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
@@ -61,7 +47,7 @@ namespace Taquilla
 			this.label2.Name = "label2";
 			this.label2.LabelProp = "Ventas por día (de mayor a menor) [global]";
 			this.vbox2.Add (this.label2);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label2]));
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label2]));
 			w3.Position = 0;
 			w3.Expand = false;
 			w3.Fill = false;
@@ -75,14 +61,14 @@ namespace Taquilla
 			this.treeDia.Name = "treeDia";
 			this.GtkScrolledWindow.Add (this.treeDia);
 			this.vbox2.Add (this.GtkScrolledWindow);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.GtkScrolledWindow]));
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.GtkScrolledWindow]));
 			w5.Position = 1;
 			// Container child vbox2.Gtk.Box+BoxChild
 			this.label3 = new global::Gtk.Label ();
 			this.label3.Name = "label3";
 			this.label3.LabelProp = "Ventas por mes (de mayor a menor) [global]";
 			this.vbox2.Add (this.label3);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label3]));
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label3]));
 			w6.Position = 2;
 			w6.Expand = false;
 			w6.Fill = false;
@@ -96,14 +82,14 @@ namespace Taquilla
 			this.treeMes.Name = "treeMes";
 			this.GtkScrolledWindow1.Add (this.treeMes);
 			this.vbox2.Add (this.GtkScrolledWindow1);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.GtkScrolledWindow1]));
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.GtkScrolledWindow1]));
 			w8.Position = 3;
 			// Container child vbox2.Gtk.Box+BoxChild
 			this.label4 = new global::Gtk.Label ();
 			this.label4.Name = "label4";
 			this.label4.LabelProp = "Ventas por hora (de mayor a menor) [global]";
 			this.vbox2.Add (this.label4);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label4]));
+			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label4]));
 			w9.Position = 4;
 			w9.Expand = false;
 			w9.Fill = false;
@@ -117,14 +103,14 @@ namespace Taquilla
 			this.treeHora.Name = "treeHora";
 			this.GtkScrolledWindow2.Add (this.treeHora);
 			this.vbox2.Add (this.GtkScrolledWindow2);
-			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.GtkScrolledWindow2]));
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.GtkScrolledWindow2]));
 			w11.Position = 5;
 			// Container child vbox2.Gtk.Box+BoxChild
 			this.label5 = new global::Gtk.Label ();
 			this.label5.Name = "label5";
 			this.label5.LabelProp = "Ventas diarias, en orden cronológico";
 			this.vbox2.Add (this.label5);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label5]));
+			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.label5]));
 			w12.Position = 6;
 			w12.Expand = false;
 			w12.Fill = false;
@@ -138,12 +124,12 @@ namespace Taquilla
 			this.treeDiario.Name = "treeDiario";
 			this.GtkScrolledWindow3.Add (this.treeDiario);
 			this.vbox2.Add (this.GtkScrolledWindow3);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.GtkScrolledWindow3]));
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.GtkScrolledWindow3]));
 			w14.Position = 7;
 			w2.Add (this.vbox2);
 			this.scrolledwindow1.Add (w2);
 			w1.Add (this.scrolledwindow1);
-			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(w1[this.scrolledwindow1]));
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(w1 [this.scrolledwindow1]));
 			w17.Position = 0;
 			// Internal child Taquilla.Estadísticas.ActionArea
 			global::Gtk.HButtonBox w18 = this.ActionArea;
@@ -160,7 +146,7 @@ namespace Taquilla
 			this.buttonOk.UseUnderline = true;
 			this.buttonOk.Label = "gtk-ok";
 			this.AddActionWidget (this.buttonOk, -5);
-			global::Gtk.ButtonBox.ButtonBoxChild w19 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w18[this.buttonOk]));
+			global::Gtk.ButtonBox.ButtonBoxChild w19 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w18 [this.buttonOk]));
 			w19.Expand = false;
 			w19.Fill = false;
 			if ((this.Child != null)) {

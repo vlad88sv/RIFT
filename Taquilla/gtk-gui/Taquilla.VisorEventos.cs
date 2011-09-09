@@ -5,23 +5,15 @@ namespace Taquilla
 	public partial class VisorEventos
 	{
 		private global::Gtk.Label label1;
-
 		private global::Gtk.HBox hbox1;
-
 		private global::Gtk.Button cmdEventosVendidosHoy;
-
 		private global::Gtk.Button cmdEventosHoy;
-
 		private global::Gtk.Entry txtIDEvento;
-
 		private global::Gtk.Button cmdBuscarEventos;
-
 		private global::Gtk.ScrolledWindow GtkScrolledWindow;
-
 		private global::Gtk.TreeView treeEventos;
-
 		private global::Gtk.Button buttonOk;
-
+        
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
@@ -38,7 +30,7 @@ namespace Taquilla
 			this.label1.LabelProp = "Búsqueda: se puede búscar por nombre de la persona o nombre del evento. Probar con un nombre o apellido a la vez.\nEdición: para editar un evento, hacer clic sobre el elemento en la lista y presionar la tecla \"<b>e</b>\" (de <b>e</b>ditar).";
 			this.label1.UseMarkup = true;
 			w1.Add (this.label1);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(w1[this.label1]));
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(w1 [this.label1]));
 			w2.Position = 0;
 			w2.Expand = false;
 			w2.Fill = false;
@@ -53,7 +45,7 @@ namespace Taquilla
 			this.cmdEventosVendidosHoy.UseUnderline = true;
 			this.cmdEventosVendidosHoy.Label = "Vendidos hoy";
 			this.hbox1.Add (this.cmdEventosVendidosHoy);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.cmdEventosVendidosHoy]));
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.cmdEventosVendidosHoy]));
 			w3.Position = 0;
 			w3.Expand = false;
 			w3.Fill = false;
@@ -64,7 +56,7 @@ namespace Taquilla
 			this.cmdEventosHoy.UseUnderline = true;
 			this.cmdEventosHoy.Label = "Para hoy";
 			this.hbox1.Add (this.cmdEventosHoy);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.cmdEventosHoy]));
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.cmdEventosHoy]));
 			w4.Position = 1;
 			w4.Expand = false;
 			w4.Fill = false;
@@ -75,7 +67,7 @@ namespace Taquilla
 			this.txtIDEvento.IsEditable = true;
 			this.txtIDEvento.InvisibleChar = '•';
 			this.hbox1.Add (this.txtIDEvento);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.txtIDEvento]));
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.txtIDEvento]));
 			w5.Position = 2;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.cmdBuscarEventos = new global::Gtk.Button ();
@@ -84,12 +76,12 @@ namespace Taquilla
 			this.cmdBuscarEventos.UseUnderline = true;
 			this.cmdBuscarEventos.Label = "Búscar";
 			this.hbox1.Add (this.cmdBuscarEventos);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.cmdBuscarEventos]));
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.cmdBuscarEventos]));
 			w6.Position = 3;
 			w6.Expand = false;
 			w6.Fill = false;
 			w1.Add (this.hbox1);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(w1[this.hbox1]));
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(w1 [this.hbox1]));
 			w7.Position = 1;
 			w7.Expand = false;
 			w7.Fill = false;
@@ -103,7 +95,7 @@ namespace Taquilla
 			this.treeEventos.Name = "treeEventos";
 			this.GtkScrolledWindow.Add (this.treeEventos);
 			w1.Add (this.GtkScrolledWindow);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(w1[this.GtkScrolledWindow]));
+			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(w1 [this.GtkScrolledWindow]));
 			w9.Position = 2;
 			// Internal child Taquilla.VisorEventos.ActionArea
 			global::Gtk.HButtonBox w10 = this.ActionArea;
@@ -118,7 +110,7 @@ namespace Taquilla
 			this.buttonOk.Name = "buttonOk";
 			this.buttonOk.UseUnderline = true;
 			// Container child buttonOk.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w11 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w11 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
 			global::Gtk.HBox w12 = new global::Gtk.HBox ();
 			w12.Spacing = 2;
@@ -134,7 +126,7 @@ namespace Taquilla
 			w11.Add (w12);
 			this.buttonOk.Add (w11);
 			this.AddActionWidget (this.buttonOk, -7);
-			global::Gtk.ButtonBox.ButtonBoxChild w19 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w10[this.buttonOk]));
+			global::Gtk.ButtonBox.ButtonBoxChild w19 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w10 [this.buttonOk]));
 			w19.Expand = false;
 			w19.Fill = false;
 			if ((this.Child != null)) {
