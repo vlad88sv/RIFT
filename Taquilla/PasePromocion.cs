@@ -84,7 +84,7 @@ namespace Taquilla
 			}
 			
 			// Verifiquemos si no ha vencido
-			c = "SELECT COUNT(*) AS pase FROM tickets WHERE ID_tipo_boleto=11 && ID_ticket='"+(txtIngreso.Text)+"' && ((pase_expiracion >= '"+global.fechaDiaTrabajoFMySQL+"') && (SUBSTRING(pase_dias_valido,"+global.diaNumero+",1) = '1')) ";
+			c = "SELECT COUNT(*) AS pase FROM tickets WHERE ID_tipo_boleto=11 && ID_ticket='"+(txtIngreso.Text)+"' && ((pase_expiracion >= '"+global.fechaDiaTrabajoFMySQL+"') && (SUBSTRING(pase_dias_valido,("+global.diaNumero+"+1),1) = '1')) ";
 			MySQL.consultar(c);
 			MySQL.Reader.Read();
 			

@@ -36,7 +36,7 @@ namespace Taquilla
 		protected virtual void OnButtonOkClicked (object sender, System.EventArgs e)
 		{		
 			// Comprobemos que exista ese tiquete
-			MySQL.consultar ("SELECT precio_grabado, fecha_juego, CAST(fecha_juego AS CHAR) AS cast_fecha_juego, ID_tipo_boleto FROM tickets WHERE ID_ticket="+txtIDTiquete.Text);
+			MySQL.consultar ("SELECT precio_grabado, fecha_juego, CAST(fecha_juego AS CHAR) AS cast_fecha_juego, CAST(DATE(fecha_juego) AS CHAR) AS cast_fecha_dia_juego, ID_tipo_boleto FROM tickets WHERE ID_ticket="+txtIDTiquete.Text);
 			
 			if (!MySQL.Reader.Read())
 			{
@@ -70,6 +70,16 @@ namespace Taquilla
 				return;
 			}
 			
+			if (MySQL.Reader["cast_fecha_dia_juego"].ToString() != global.fechaDiaTrabajoFMySQL)
+			{
+				Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "Operación inválida, no se puede mover un tiquete de otro día.");
+				Mensaje.Title="Error";
+				Mensaje.Run();
+				Mensaje.Destroy();
+				Respond(ResponseType.Cancel);
+				return;
+			}
+
 			// Lo esta tratando de mover antes
 			if (DateTime.Parse(global.fechaDiaTrabajoMasJuego,CultureInfo.InvariantCulture).CompareTo(MySQL.Reader["fecha_juego"]) == -1)
 			{
