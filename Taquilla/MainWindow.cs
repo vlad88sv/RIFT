@@ -155,38 +155,7 @@ public partial class MainWindow : Gtk.Window
 		tiquete.PrecioBase = double.Parse(MySQL.Reader["precio"].ToString());
 		global.diaNumero = int.Parse(MySQL.Reader["diaN"].ToString());
 
-		CargarTiquetesDelDia();
-		
-		// Ayudante de precios
-		string AyudantePrecios = "";
-		
-		AyudantePrecios = "<span>1 juego (15 minutos)</span>\n";
-		for (int i = 1; i < 14; i++)
-		{
-			AyudantePrecios += i + " Jugador = $" + (tiquete.PrecioBase * i).ToString("0.00") + "\n";
-		}
-		lbl15.Markup = AyudantePrecios;
-
-		AyudantePrecios = "<span>2 juego (30 minutos)</span>\n";
-		for (int i = 1; i < 14; i++)
-		{
-			AyudantePrecios += i + " Jugador = $" + (tiquete.PrecioBase * i * 2).ToString("0.00") + "\n";
-		}
-		lbl30.Markup = AyudantePrecios;
-		
-		AyudantePrecios = "<span>3 juego (45 minutos)</span>\n";
-		for (int i = 1; i < 14; i++)
-		{
-			AyudantePrecios += i + " Jugador = $" + (tiquete.PrecioBase * i * 3).ToString("0.00") + "\n";
-		}
-		lbl45.Markup = AyudantePrecios;
-		
-		AyudantePrecios = "<span>4 juego (60 minutos)</span>\n";
-		for (int i = 1; i < 14; i++)
-		{
-			AyudantePrecios += i + " Jugador = $" + (tiquete.PrecioBase * i * 4).ToString("0.00") + "\n";
-		}
-		lbl60.Markup = AyudantePrecios;
+		CargarTiquetesDelDia();		
 	}
 	
 	protected virtual void OnTreeTiquetesKeyPressEvent (object o, Gtk.KeyPressEventArgs args)
