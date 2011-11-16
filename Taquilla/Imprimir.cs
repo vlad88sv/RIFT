@@ -15,7 +15,7 @@ public static class Imprimidor
 			LPR_Printer = "EPSON-TEXT";
 			
 			// Imprimir solo en receipt (solo para EPSON-TEXT porque PDF backend se rompe)
-			//Tiquete += "\x1B\x63\x30\x02";
+			Tiquete += "\x1B\x63\x30\x02";
 		}
 		Tiquete += Imprimir("RIFT LASER TAG",											1);
 		/*
