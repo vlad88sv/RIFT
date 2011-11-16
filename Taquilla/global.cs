@@ -2,7 +2,7 @@ using System;
 using Gtk;
 public static class global
 {
-	public const int maximo_jugadores = 13;
+	public const int maximo_jugadores = 16;
 	public static string fechaDiaTrabajoFMySQL = "";
 	public static string fechaDiaTrabajoMasJuegoFMySQL = "";
 	public static string fechaDiaTrabajoMasJuego = "";
