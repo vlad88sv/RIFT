@@ -4,12 +4,20 @@ namespace Taquilla
 {
 	public partial class Eventos : Gtk.Window
 	{	
+		// modo
+		// 0 = creación de evento
+		// 1 = edición de evento
+		private int modo = 0;
+		
+		// Usado si modo = 1
+		private int ID_evento = 0;
+		
 		protected virtual void OnCmdCancelarClicked (object sender, System.EventArgs e)
 		{
 			this.Destroy();
 		}
 
-		public Eventos () : base(Gtk.WindowType.Toplevel)
+		public Eventos (int ID_evento = 0) : base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
 			for (int h = 0; h < 65; h++)
