@@ -28,7 +28,7 @@ namespace Taquilla
 		private global::Gtk.VBox vbox4;
 		private global::Gtk.Label label4;
 		private global::Gtk.Calendar calFechaEvento;
-        
+		
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);

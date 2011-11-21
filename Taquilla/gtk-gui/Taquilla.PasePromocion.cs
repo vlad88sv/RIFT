@@ -10,7 +10,7 @@ namespace Taquilla
 		private global::Gtk.RadioButton rdoPromocion;
 		private global::Gtk.Button buttonCancel;
 		private global::Gtk.Button buttonOk;
-        
+		
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
@@ -43,6 +43,7 @@ namespace Taquilla
 			this.rdoPase = new global::Gtk.RadioButton ("Pase");
 			this.rdoPase.CanFocus = true;
 			this.rdoPase.Name = "rdoPase";
+			this.rdoPase.Active = true;
 			this.rdoPase.DrawIndicator = true;
 			this.rdoPase.UseUnderline = true;
 			this.rdoPase.Group = new global::GLib.SList (global::System.IntPtr.Zero);
@@ -97,7 +98,7 @@ namespace Taquilla
 				this.Child.ShowAll ();
 			}
 			this.DefaultWidth = 400;
-			this.DefaultHeight = 116;
+			this.DefaultHeight = 126;
 			this.buttonOk.HasDefault = true;
 			this.Show ();
 			this.txtIngreso.KeyPressEvent += new global::Gtk.KeyPressEventHandler (this.OnTxtIngresoKeyPressEvent);

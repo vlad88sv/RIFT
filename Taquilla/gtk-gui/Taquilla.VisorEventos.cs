@@ -13,7 +13,7 @@ namespace Taquilla
 		private global::Gtk.ScrolledWindow GtkScrolledWindow;
 		private global::Gtk.TreeView treeEventos;
 		private global::Gtk.Button buttonOk;
-        
+		
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);

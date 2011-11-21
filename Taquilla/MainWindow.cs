@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using Gtk;
 using GLib;
-
+using Pango;
 public partial class MainWindow : Gtk.Window
 {
 	
@@ -37,23 +37,18 @@ public partial class MainWindow : Gtk.Window
 	
 	private void Iniciar()
 	{
+		/* Proceso que inicia del programa */
 		this.Maximize();
 		
-		/* Proceso que inicia del programa */
+		InicioUsuario();
 	
 		OnCalDiaTrabajoDaySelected(null,null);
 		
 		CrearTreeTiquetes();
+		CargarTiquetesDelDia();
 		
 		/* Reloj */
 		GLib.Timeout.Add (1000, new GLib.TimeoutHandler (ActualizarInterfaz));
-		
-		hbControles2.Sensitive = false;
-		controles.Sensitive = false;
-		vbControlesAdmin.Sensitive = false;
-		
-		treeTiquetes.RulesHint = true;
-		treeTiquetes.EnableGridLines = TreeViewGridLines.Both;
 
 		// Cafetería
 		cafeteria.ConstruirLista(ref tvLista, ref listaStore);		
@@ -62,8 +57,9 @@ public partial class MainWindow : Gtk.Window
 	
 	bool ActualizarInterfaz()
 	{
-		lblHoraActual.Markup = "<span  color='red' size='xx-large'>"+DateTime.Now.ToString("HH:mm:ss")+"</span>"; 
-		lblFechaActual.Markup = "<span color='red'>"+DateTime.Now.ToString("D")+"</span>";
+		lblFechaActual.Markup = "<span  color='red' font='18'>" + DateTime.Now.ToString("D") + "</span>";
+		lblHoraActual.Markup = "<span  color='red' font='24'>" + DateTime.Now.ToString("HH:mm")+"</span>";
+		lblPrecioDelDia.Markup = "<span  color='red' font='24'>$"+ tiquete.PrecioBase.ToString("0.00")+"</span>";
 		return true;
 	}
 	
@@ -74,12 +70,23 @@ public partial class MainWindow : Gtk.Window
 		treeTiquetes.AppendColumn("O",new Gtk.CellRendererText(),"markup",1);
 		treeTiquetes.AppendColumn("D",new Gtk.CellRendererText(),"markup",2);
 		treeTiquetes.AppendColumn("Notas",new Gtk.CellRendererText(),"markup",3);
+		treeTiquetes.RulesHint = true;
+		treeTiquetes.EnableGridLines = TreeViewGridLines.Both;
 	}	
 
 	private void CargarTiquetesDelDia()
 	{
 		double benchmark = DateTime.Now.TimeOfDay.TotalMilliseconds;
 		
+		global.fechaDiaTrabajoFMySQL = calDiaTrabajo.Date.ToString("yyyy-MM-dd");
+		global.fechaDiaTrabajo = calDiaTrabajo.Date.ToString("dd/MM/yyyy");
+		
+		// Precio base del día y número de día
+		MySQL.consultar("SELECT precio, DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w') AS 'diaN' FROM precios_diarios WHERE dia = DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w')");
+		MySQL.Reader.Read();
+		tiquete.PrecioBase = double.Parse(MySQL.Reader["precio"].ToString());
+		global.diaNumero = int.Parse(MySQL.Reader["diaN"].ToString());
+			
 		// Desprendemos el modelo del treeTiquetes, para hacer que se actualice solo al final
 		treeTiquetes.Visible = false;
 		treeTiquetes.Model = null;
@@ -88,8 +95,8 @@ public partial class MainWindow : Gtk.Window
 		// Reiniciemos el TreeTiquetes
 		tree.Clear();
 		
-		for (int h = 0; h < 65; h++)
-				tree.AppendValues (DateTime.Parse("08:00").AddMinutes(15.0*(double)h).ToString("HH:mm",CultureInfo.InvariantCulture),"0",global.maximo_jugadores.ToString());
+		for (int h = 0; h < 65; h++)	
+				tree.AppendValues (DateTime.Parse("08:00").AddMinutes(15.0*(double)h).ToString("HH:mm",CultureInfo.InvariantCulture),"0", global.maximo_jugadores.ToString());
 						
 		string c = "SELECT COUNT(*) AS 'vendidos', DATE(`fecha_juego`) AS 'fecha', DATE_FORMAT(`fecha_juego`,'%H:%i') AS `hora` FROM `tickets` LEFT JOIN `tipo_boleto` USING(`ID_tipo_boleto`) WHERE `tickets`.`ID_tipo_boleto` IN ("+tiquete.ID_tipo_normal+","+tiquete.ID_tipo_gratis+") AND DATE(`fecha_juego`) = '"+ global.fechaDiaTrabajoFMySQL +"' GROUP BY `fecha_juego` ORDER BY `fecha_juego` ASC, `numero_jugador` ASC";
 		if (!MySQL.consultar(c))
@@ -146,15 +153,6 @@ public partial class MainWindow : Gtk.Window
 
 	protected virtual void OnCalDiaTrabajoDaySelected (object sender, System.EventArgs e)
 	{
-		global.fechaDiaTrabajoFMySQL = calDiaTrabajo.Date.ToString("yyyy-MM-dd");
-		global.fechaDiaTrabajo = calDiaTrabajo.Date.ToString("dd/MM/yyyy");
-		
-		// Precio base del día y número de día
-		MySQL.consultar("SELECT precio, DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w') AS 'diaN' FROM precios_diarios WHERE dia = DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w')");
-		MySQL.Reader.Read();
-		tiquete.PrecioBase = double.Parse(MySQL.Reader["precio"].ToString());
-		global.diaNumero = int.Parse(MySQL.Reader["diaN"].ToString());
-
 		CargarTiquetesDelDia();		
 	}
 	
@@ -245,22 +243,6 @@ public partial class MainWindow : Gtk.Window
 		Taquilla.Eventos eventos = new Taquilla.Eventos();
 		eventos.Show();
 	}
-
-	protected virtual void OnCmdEstadisticasClicked (object sender, System.EventArgs e)
-	{
-		if (auth.nivel != "gerente")
-		{
-			MessageDialog Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "global.Auth :: su usuario no posee autorización para acceder este módulo.");
-			Mensaje.Title="Error";
-			Mensaje.Run();
-			Mensaje.Destroy();
-			return;
-		}
-		
-		Taquilla.Estadísticas estadisticas = new Taquilla.Estadísticas();
-		
-		estadisticas.Show();
-	}
 	
 	protected virtual void OnCmdVerEventosClicked (object sender, System.EventArgs e)
 	{
@@ -268,69 +250,13 @@ public partial class MainWindow : Gtk.Window
 		
 		visoreventos.Show();
 	}	
-	protected virtual void OnCmdSesionClicked (object sender, System.EventArgs e)
-	{
-		string c = "";
-		if (auth.Autorizado == true)
-		{
-			Historial.Registrar ("SESION FINALIZADA");
-			cmdSesion.Label = "Iniciar";
-			auth.Autorizado = false;
-			auth.ID_usuario = "0";
-			hbControles2.Sensitive = false;
-			controles.Sensitive = false;
-			Cafeteria.Sensitive = false;
-			vbControlesAdmin.Sensitive = false;
-			tblSesion.Sensitive = true;
-			return;
-		}
-		
-		c = "SELECT COUNT(*) AS autorizados, ID_usuario, usuario, nombre, nivel FROM usuarios WHERE usuario='"+txtUsuario.Text+"' AND clave=SHA1('"+txtClave.Text+"')";
-		if (MySQL.consultar(c))
-		{
-			MySQL.Reader.Read();
-			
-			if (MySQL.Reader["autorizados"].ToString() == "0")
-			{
-				MessageDialog Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "Lo siento, no se puede autorizar. Esta clave no esta registrada.");
-				Mensaje.Title="Error";
-				Mensaje.Run();
-				Mensaje.Destroy();
-				auth.ID_usuario = "0";
-				auth.Autorizado = false;
-				auth.nombre = "";
-				auth.nivel = "";
-				return;
-			}
-	
-			txtUsuario.Text = "";
-			txtClave.Text = "";
-			auth.ID_usuario = MySQL.Reader["ID_usuario"].ToString();
-			auth.Autorizado = true;
-			auth.nombre = MySQL.Reader["nombre"].ToString();
-			auth.nivel = MySQL.Reader["nivel"].ToString();
-			hbControles2.Sensitive = true;
-			controles.Sensitive = true;
-			Cafeteria.Sensitive = true;
-			vbControlesAdmin.Sensitive = true;
-			tblSesion.Sensitive = false;
-			cmdSesion.Label = "Finalizar\n"+MySQL.Reader["usuario"].ToString();
-			
-			// Carguemos los tiquetes
-			CargarTiquetesDelDia();
-			
-			// Registramos en el log el suceso
-			Historial.Registrar("SESION INICIADA");
-		}
-	}
+
 	protected virtual void OnPasesClicked (object sender, System.EventArgs e)
 	{
 		Taquilla.pases Pases = new Taquilla.pases();
 		
 		Pases.Show();
 	}
-
-
 	
 	protected virtual void OnTvListaKeyPressEvent (object o, Gtk.KeyPressEventArgs args)
 	{
@@ -513,4 +439,24 @@ public partial class MainWindow : Gtk.Window
 	}
 	
 	
+	protected void OnCmdFinalizarClicked (object sender, System.EventArgs e)
+	{
+		Historial.Registrar ("SESION FINALIZADA");
+		auth.Autorizado = false;
+		auth.ID_usuario = "0";
+		InicioUsuario();
+	}
+	
+	void InicioUsuario()
+	{
+		this.Sensitive = false;
+		while (auth.Autorizado == false)
+		{
+			Taquilla.InicioSesion wInicioSesion = new Taquilla.InicioSesion();
+			wInicioSesion.Modal = true;
+			wInicioSesion.Run();
+			wInicioSesion.Destroy();
+		}
+		this.Sensitive = true;
+	}
 }

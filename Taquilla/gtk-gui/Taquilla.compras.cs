@@ -21,7 +21,7 @@ namespace Taquilla
 		private global::Gtk.HButtonBox dialog1_ActionArea1;
 		private global::Gtk.Button buttonCancel;
 		private global::Gtk.Button cmdGrabar;
-        
+		
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);

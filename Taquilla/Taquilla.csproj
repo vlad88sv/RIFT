@@ -9,7 +9,6 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Taquilla</RootNamespace>
     <AssemblyName>Taquilla</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ReleaseVersion />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -61,8 +60,7 @@
     <Reference Include="Mono.Posix" />
     <Reference Include="System.Data" />
     <Reference Include="System.Security" />
-    <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="MySql.Data">
       <HintPath>bin\Release\MySql.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -97,12 +95,12 @@
     <Compile Include="cafeteria.cs" />
     <Compile Include="global.cs" />
     <Compile Include="tiquete.cs" />
-    <Compile Include="cancelacionTiquete.cs" />
-    <Compile Include="gtk-gui\Taquilla.cancelacionTiquete.cs" />
     <Compile Include="PasePromocion.cs" />
     <Compile Include="gtk-gui\Taquilla.PasePromocion.cs" />
     <Compile Include="movimientoTiquete.cs" />
     <Compile Include="gtk-gui\Taquilla.movimientoTiquete.cs" />
+    <Compile Include="InicioSesion.cs" />
+    <Compile Include="gtk-gui\Taquilla.InicioSesion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.desktop" />
