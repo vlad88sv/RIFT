@@ -488,4 +488,19 @@ public partial class MainWindow : Gtk.Window
 		else
 			reproductor.PararMusica();
 	}
+
+	protected void OnCmdRiftFinalizarClicked (object sender, System.EventArgs e)
+	{
+		RIFTnetwork.finalizar ();
+	}
+
+	protected void OnCmdRiftAbortarClicked (object sender, System.EventArgs e)
+	{
+		RIFTnetwork.abortar ();
+	}
+
+	protected void OnCmdRiftIniciarClicked (object sender, System.EventArgs e)
+	{
+		RIFTnetwork.iniciar ();
+	}
 }

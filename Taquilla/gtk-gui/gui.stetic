@@ -1850,12 +1850,13 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                         <property name="Homogeneous">True</property>
                         <property name="Spacing">6</property>
                         <child>
-                          <widget class="Gtk.Button" id="lblRIFT">
+                          <widget class="Gtk.Button" id="cmdRiftIniciar">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Type">TextOnly</property>
                             <property name="Label" translatable="yes">Iniciar</property>
                             <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="OnCmdRiftIniciarClicked" />
                           </widget>
                           <packing>
                             <property name="Position">0</property>
@@ -1865,12 +1866,13 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.Button" id="button302">
+                          <widget class="Gtk.Button" id="cmdRiftAbortar">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Type">TextOnly</property>
                             <property name="Label" translatable="yes">Abortar</property>
                             <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="OnCmdRiftAbortarClicked" />
                           </widget>
                           <packing>
                             <property name="Position">1</property>
@@ -1880,12 +1882,13 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                           </packing>
                         </child>
                         <child>
-                          <widget class="Gtk.Button" id="button303">
+                          <widget class="Gtk.Button" id="cmdRiftFinalizar">
                             <property name="MemberName" />
                             <property name="CanFocus">True</property>
                             <property name="Type">TextOnly</property>
                             <property name="Label" translatable="yes">Finalizar</property>
                             <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="OnCmdRiftFinalizarClicked" />
                           </widget>
                           <packing>
                             <property name="Position">2</property>
