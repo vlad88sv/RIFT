@@ -17,13 +17,15 @@ public partial class MainWindow : Gtk.Window
 	                                              typeof (string), // Descripción
 	                                              typeof (double)); // Precio
 	
+	Taquilla.Musica reproductor = new Taquilla.Musica();
+	
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
 	{
 		this.Build ();
 		Iniciar();
 		ActualizarInterfaz();
 	}
-
+	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
 		if (auth.Autorizado)
@@ -31,6 +33,7 @@ public partial class MainWindow : Gtk.Window
 			// Registramos en el log el suceso
 			Historial.Registrar("SESION FINALIZADA [TIPO=SALIDA]");
 		}
+		reproductor.PararMusica ();
 		Application.Quit ();
 		a.RetVal = true;
 	}
@@ -42,6 +45,8 @@ public partial class MainWindow : Gtk.Window
 		
 		InicioUsuario();
 	
+		reproductor.IniciarMusica();
+		
 		OnCalDiaTrabajoDaySelected(null,null);
 		
 		CrearTreeTiquetes();
@@ -65,11 +70,24 @@ public partial class MainWindow : Gtk.Window
 	
 	private void CrearTreeTiquetes()
 	{
-		treeTiquetes.Model = tree;	
-		treeTiquetes.AppendColumn("Inicio",new Gtk.CellRendererText(),"markup",0);
-		treeTiquetes.AppendColumn("O",new Gtk.CellRendererText(),"markup",1);
-		treeTiquetes.AppendColumn("D",new Gtk.CellRendererText(),"markup",2);
-		treeTiquetes.AppendColumn("Notas",new Gtk.CellRendererText(),"markup",3);
+		treeTiquetes.Model = tree;
+		Gtk.CellRendererText crtTiquetesHora = new Gtk.CellRendererText();
+		crtTiquetesHora.Font = "bold 13";
+
+		Gtk.CellRendererText crtTiquetesOO = new Gtk.CellRendererText();
+		crtTiquetesOO.Font = "20";
+		crtTiquetesOO.Foreground = "red";
+		
+		Gtk.CellRendererText crtTiquetesDD = new Gtk.CellRendererText();
+		crtTiquetesDD.Font = "13";
+
+		Gtk.CellRendererText crtTiquetesEventos = new Gtk.CellRendererText();
+		crtTiquetesEventos.Font = "12";
+		
+		treeTiquetes.AppendColumn("Inicio",crtTiquetesHora,"markup",0);
+		treeTiquetes.AppendColumn("OO",crtTiquetesOO,"markup",1);
+		treeTiquetes.AppendColumn("DD",crtTiquetesDD,"markup",2);
+		treeTiquetes.AppendColumn("Eventos",crtTiquetesEventos,"markup",3);
 		treeTiquetes.RulesHint = true;
 		treeTiquetes.EnableGridLines = TreeViewGridLines.Both;
 	}	
@@ -95,7 +113,7 @@ public partial class MainWindow : Gtk.Window
 		// Reiniciemos el TreeTiquetes
 		tree.Clear();
 		
-		for (int h = 0; h < 65; h++)	
+		for (int h = 0; h < 64; h++)	
 				tree.AppendValues (DateTime.Parse("08:00").AddMinutes(15.0*(double)h).ToString("HH:mm",CultureInfo.InvariantCulture),"0", global.maximo_jugadores.ToString());
 						
 		string c = "SELECT COUNT(*) AS 'vendidos', DATE(`fecha_juego`) AS 'fecha', DATE_FORMAT(`fecha_juego`,'%H:%i') AS `hora` FROM `tickets` LEFT JOIN `tipo_boleto` USING(`ID_tipo_boleto`) WHERE `tickets`.`ID_tipo_boleto` IN ("+tiquete.ID_tipo_normal+","+tiquete.ID_tipo_gratis+") AND DATE(`fecha_juego`) = '"+ global.fechaDiaTrabajoFMySQL +"' GROUP BY `fecha_juego` ORDER BY `fecha_juego` ASC, `numero_jugador` ASC";
@@ -158,6 +176,18 @@ public partial class MainWindow : Gtk.Window
 	
 	protected virtual void OnTreeTiquetesKeyPressEvent (object o, Gtk.KeyPressEventArgs args)
 	{
+		switch (args.Event.Key)
+		{
+			case (Gdk.Key.KP_Add):
+			case (Gdk.Key.c):
+			case (Gdk.Key.p):			
+			case (Gdk.Key.m):
+			case (Gdk.Key.i):
+				break;
+			default:
+				return;
+		}
+
 		Resultadotiquete Resultado = new Resultadotiquete();
 		Gtk.TreeIter iter = new Gtk.TreeIter();
 		treeTiquetes.Selection.GetSelected(out iter);
@@ -244,12 +274,6 @@ public partial class MainWindow : Gtk.Window
 		eventos.Show();
 	}
 	
-	protected virtual void OnCmdVerEventosClicked (object sender, System.EventArgs e)
-	{
-		Taquilla.VisorEventos visoreventos = new Taquilla.VisorEventos(calDiaTrabajo.Date.ToString("yyyy-MM-dd"));
-		
-		visoreventos.Show();
-	}	
 
 	protected virtual void OnPasesClicked (object sender, System.EventArgs e)
 	{
@@ -431,19 +455,15 @@ public partial class MainWindow : Gtk.Window
 		txtEfectivo.GrabFocus();
 		return;	
 		
-	}	
-	
-	protected virtual void OnCmdActualizarClicked (object sender, System.EventArgs e)
-	{
-		CargarTiquetesDelDia();
 	}
-	
 	
 	protected void OnCmdFinalizarClicked (object sender, System.EventArgs e)
 	{
 		Historial.Registrar ("SESION FINALIZADA");
 		auth.Autorizado = false;
 		auth.ID_usuario = "0";
+		lblRegistradoComo.Text = "";
+		reproductor.PararMusica();
 		InicioUsuario();
 	}
 	
@@ -457,6 +477,15 @@ public partial class MainWindow : Gtk.Window
 			wInicioSesion.Run();
 			wInicioSesion.Destroy();
 		}
+		lblRegistradoComo.Text = auth.nombre;
 		this.Sensitive = true;
+	}
+
+	protected void OnCheckbutton1Toggled (object sender, System.EventArgs e)
+	{
+		if (checkbutton1.Active == true)
+			reproductor.IniciarMusica();
+		else
+			reproductor.PararMusica();
 	}
 }

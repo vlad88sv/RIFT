@@ -36,7 +36,7 @@ namespace Taquilla
 		protected virtual void OnButtonOkClicked (object sender, System.EventArgs e)
 		{		
 			// Comprobemos que exista ese tiquete
-			MySQL.consultar ("SELECT precio_grabado, fecha_juego, CAST(fecha_juego AS CHAR) AS cast_fecha_juego, CAST(DATE(fecha_juego) AS CHAR) AS cast_fecha_dia_juego, ID_tipo_boleto FROM tickets WHERE ID_ticket="+txtIDTiquete.Text);
+			MySQL.consultar ("SELECT precio_grabado, fecha_juego, CAST(fecha_juego AS CHAR) AS cast_fecha_juego, CAST(DATE(fecha_juego) AS CHAR) AS cast_fecha_dia_juego, ID_tipo_boleto FROM tickets WHERE ID_ticket='"+txtIDTiquete.Text+"'");
 			
 			if (!MySQL.Reader.Read())
 			{

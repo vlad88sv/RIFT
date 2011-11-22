@@ -7,6 +7,7 @@ namespace Taquilla
 		public InicioSesion ()
 		{
 			this.Build ();
+			txtClave.Visibility = false;
 		}
 
 		protected void OnButtonOkClicked (object sender, System.EventArgs e)

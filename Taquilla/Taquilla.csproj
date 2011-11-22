@@ -101,6 +101,8 @@
     <Compile Include="gtk-gui\Taquilla.movimientoTiquete.cs" />
     <Compile Include="InicioSesion.cs" />
     <Compile Include="gtk-gui\Taquilla.InicioSesion.cs" />
+    <Compile Include="RIFTnetwork.cs" />
+    <Compile Include="Musica.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.desktop" />
