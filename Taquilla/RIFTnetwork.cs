@@ -13,15 +13,8 @@ public static class RIFTnetwork
 	{
 		try
 		{
-			Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream,ProtocolType.Tcp);
-	
-			IPAddress serverAddr  = IPAddress.Parse("192.168.1.104");
-			
-			IPEndPoint endPoint = new IPEndPoint(serverAddr, 12050);
-			
-			byte[] send_buffer = Encoding.ASCII.GetBytes(Paquete);
-			
-			sock.SendTo(send_buffer , endPoint);
+			Socket sock = new TcpClient("192.168.1.104",12050).Client;
+			sock.Send (Encoding.UTF8.GetBytes(Paquete));
 		} catch {
 			Console.WriteLine ("No se pudo conectar con el servidor RIFT");
 		}
