@@ -19,6 +19,8 @@ public partial class MainWindow : Gtk.Window
 	
 	Taquilla.Musica reproductor = new Taquilla.Musica();
 	
+	private bool FechaOculta = false;
+	
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
 	{
 		this.Build ();
@@ -65,6 +67,18 @@ public partial class MainWindow : Gtk.Window
 		lblFechaActual.Markup = "<span  color='red' font='18'>" + DateTime.Now.ToString("D") + "</span>";
 		lblHoraActual.Markup = "<span  color='red' font='24'>" + DateTime.Now.ToString("HH:mm")+"</span>";
 		lblPrecioDelDia.Markup = "<span  color='red' font='24'>$"+ tiquete.PrecioBase.ToString("0.00")+"</span>";
+		
+		if (calDiaTrabajo.Date.ToShortDateString() != DateTime.Now.ToShortDateString())
+		{
+			if (FechaOculta)
+				lblFechaActual.Markup = "<span  color='blue' font='20'>Hoy: " + DateTime.Now.ToString("D") + "</span>";
+			else
+				lblFechaActual.Markup = "<span  color='red' font='20'>ESTA EN OTRO DÍA</span>";
+			
+			
+			FechaOculta = !FechaOculta;
+		}
+
 		return true;
 	}
 	
