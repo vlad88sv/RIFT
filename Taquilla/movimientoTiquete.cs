@@ -59,6 +59,17 @@ namespace Taquilla
 				return;
 			}
 			
+			// No se pueden mover pases
+			if (MySQL.Reader["ID_tipo_boleto"].ToString() == (string) tiquete.ID_tipo_pase)
+			{
+				Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "Operación inválida, no puede mover un pase, utilize la tecla 'p' para ello.");
+				Mensaje.Title="Error";
+				Mensaje.Run();
+				Mensaje.Destroy();
+				Respond(ResponseType.Cancel);
+				return;
+			}
+			
 			// Denegar a la misma hora
 			if (MySQL.Reader["cast_fecha_juego"].ToString() == global.fechaDiaTrabajoMasJuegoFMySQL)
 			{
