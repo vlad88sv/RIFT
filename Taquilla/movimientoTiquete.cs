@@ -38,6 +38,8 @@ namespace Taquilla
 			// Comprobemos que exista ese tiquete
 			MySQL.consultar ("SELECT precio_grabado, fecha_juego, CAST(fecha_juego AS CHAR) AS cast_fecha_juego, CAST(DATE(fecha_juego) AS CHAR) AS cast_fecha_dia_juego, DATE(fecha_juego) AS fecha_dia_juego, ID_tipo_boleto FROM tickets WHERE ID_ticket='"+txtIDTiquete.Text+"'");
 			
+			Resultado.error = true;
+			
 			if (!MySQL.Reader.Read())
 			{
 				Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, "Operación inválida, código de tiquete no encontrado.");
@@ -88,6 +90,7 @@ namespace Taquilla
 				Mensaje.Title="Error";
 				Mensaje.Run();
 				Mensaje.Destroy();
+				Respond(ResponseType.Cancel);
 				return;
 			}
 			
