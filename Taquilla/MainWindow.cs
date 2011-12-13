@@ -67,14 +67,20 @@ public partial class MainWindow : Gtk.Window
 		lblFechaActual.Markup = "<span  color='red' font='18'>" + DateTime.Now.ToString("D") + "</span>";
 		lblHoraActual.Markup = "<span  color='red' font='24'>" + DateTime.Now.ToString("HH:mm")+"</span>";
 		lblPrecioDelDia.Markup = "<span  color='red' font='24'>$"+ tiquete.PrecioBase.ToString("0.00")+"</span>";
+		lblAtencion.Markup = "";
 		
 		if (calDiaTrabajo.Date.ToShortDateString() != DateTime.Now.ToShortDateString())
 		{
 			if (FechaOculta)
+			{
 				lblFechaActual.Markup = "<span  color='blue' font='20'>Hoy: " + DateTime.Now.ToString("D") + "</span>";
+				lblAtencion.Markup = "<span  color='blue' font='40'>Hoy: " + DateTime.Now.ToString("D") + "</span>";
+			}
 			else
+			{
 				lblFechaActual.Markup = "<span  color='red' font='20'>ESTA EN OTRO DÍA</span>";
-			
+				lblAtencion.Markup = "<span  color='red' font='40'>ESTA EN OTRO DÍA</span>";
+			}
 			
 			FechaOculta = !FechaOculta;
 		}

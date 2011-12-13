@@ -759,7 +759,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Dialog" id="Taquilla.CorteZ" design-size="400 266">
+  <widget class="Gtk.Dialog" id="Taquilla.CorteZ" design-size="400 284">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Modulo Corte Z</property>
     <property name="WindowPosition">CenterAlways</property>
@@ -914,7 +914,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                 <property name="Text" translatable="yes">0.00</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">•</property>
-                <signal name="TextInserted" handler="OnTxtChequeTextInserted" />
+                <signal name="Changed" handler="OnTxtChequeChanged" />
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -961,7 +961,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                 <property name="Text" translatable="yes">0.00</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">•</property>
-                <signal name="TextInserted" handler="OnTxtEfectivoTextInserted" />
+                <signal name="Changed" handler="OnTxtEfectivoChanged" />
               </widget>
               <packing>
                 <property name="LeftAttach">1</property>
@@ -1803,6 +1803,19 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
           </packing>
         </child>
         <child>
+          <widget class="Gtk.Label" id="lblAtencion">
+            <property name="MemberName" />
+            <property name="Justify">Center</property>
+            <property name="Angle">90</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.VBox" id="Cafeteria">
             <property name="MemberName" />
             <property name="WidthRequest">350</property>
@@ -2132,7 +2145,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
           </widget>
           <packing>
             <property name="PackType">End</property>
-            <property name="Position">2</property>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>

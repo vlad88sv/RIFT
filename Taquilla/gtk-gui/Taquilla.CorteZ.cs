@@ -247,10 +247,10 @@ namespace Taquilla
 				this.Child.ShowAll ();
 			}
 			this.DefaultWidth = 400;
-			this.DefaultHeight = 266;
+			this.DefaultHeight = 284;
 			this.Show ();
-			this.txtEfectivo.TextInserted += new global::Gtk.TextInsertedHandler (this.OnTxtEfectivoTextInserted);
-			this.txtCheque.TextInserted += new global::Gtk.TextInsertedHandler (this.OnTxtChequeTextInserted);
+			this.txtEfectivo.Changed += new global::System.EventHandler (this.OnTxtEfectivoChanged);
+			this.txtCheque.Changed += new global::System.EventHandler (this.OnTxtChequeChanged);
 			this.buttonCancel.Clicked += new global::System.EventHandler (this.OnButtonCancelClicked);
 			this.buttonOk.Clicked += new global::System.EventHandler (this.OnButtonOkClicked);
 		}
