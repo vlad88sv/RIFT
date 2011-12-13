@@ -200,10 +200,6 @@ namespace Taquilla
 					return 0;
 			}
 		}	
-		protected virtual void OnTxtEfectivoTextInserted (object o, Gtk.TextInsertedArgs args)
-		{	
-			CalcularRemesa ();
-		}
 		
 		void CalcularRemesa ()
 		{
@@ -212,13 +208,19 @@ namespace Taquilla
 			
 			if (double.TryParse(txtCheque.Text, out Cheque) && double.TryParse(txtEfectivo.Text, out Efectivo))
 				txtMontoRemesar.Text = (Efectivo + Cheque).ToString("0.00");
+			else
+				txtMontoRemesar.Text = "*ERROR*";
 		}
-		protected virtual void OnTxtChequeTextInserted (object o, Gtk.TextInsertedArgs args)
+
+		protected void OnTxtEfectivoChanged (object sender, System.EventArgs e)
 		{
-			CalcularRemesa ();
+			CalcularRemesa();
 		}
-		
-		
+
+		protected void OnTxtChequeChanged (object sender, System.EventArgs e)
+		{
+			CalcularRemesa();
+		}
 	}
 }
 
