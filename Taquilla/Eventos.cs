@@ -32,8 +32,6 @@ namespace Taquilla
 			
 			cmdHoraFinal.Model.GetIterFirst(out iter);
 			cmdHoraFinal.SetActiveIter(iter);
-			
-			lblNombreUsuario.Text = auth.nombre;
 		}
 		
 		protected virtual void OnCmdProgramarClicked (object sender, System.EventArgs e)
@@ -119,6 +117,102 @@ namespace Taquilla
 		}
 		
 		
+		private void ValidarEvento()
+		{
+			bool FechaCorrecta = false;
+			bool InicioMenorQueFinal = false;
+			bool HayContacto = false;
+			bool HayNombreEvento = false;
+			bool HayPatrocinador = false;
+			bool PrecioValido = false;
+			try
+			{
+				if (DateTime.Parse(cmdHoraInicio.ActiveText) < DateTime.Parse(cmdHoraFinal.ActiveText))
+					InicioMenorQueFinal = true;
+				//Console.WriteLine("Evento:: prueba InicioMenorQueFinal superada");
+			} catch {}
+			
+			try
+			{
+				if (calFechaEvento.Date >= DateTime.Now.Date)
+					FechaCorrecta = true;
+			} catch {}
+			
+			HayContacto = txtinfoContacto.Text != "";
+			HayNombreEvento = txtNombreEvento.Text != "";
+			HayPatrocinador = txtPatrocinadoPor.Text != "";
+			
+			try
+			{
+				PrecioValido = double.Parse(txtPrecioEvento.Text) >= 0.00;
+			} catch {}
+			
+			//Console.WriteLine("Evento:: todas las pruebas superadas");
+			if (InicioMenorQueFinal && HayContacto && HayNombreEvento && HayPatrocinador && PrecioValido && FechaCorrecta )
+			{
+				lblInfo.Markup = "El evento inicia a las <b>" + DateTime.Parse(cmdHoraInicio.ActiveText).ToString("hh:mm tt") + "</b> y termina a las <b>" + DateTime.Parse(cmdHoraFinal.ActiveText).ToString("hh:mm tt") + "</b> el día <b>" + calFechaEvento.Date.ToString("dddd d MMMM yyyy") + "</b>";
+				cmdProgramar.Sensitive = true;
+			} else {
+				string errores = "";
+				
+				if (!InicioMenorQueFinal)
+					errores += "La hora de inicio debe ser menor que la hora de final.\n";
+				
+				if (!HayContacto)
+					errores += "Falta número télefonico de contacto.\n";
+				
+				if (!HayNombreEvento)
+					errores += "Falta nombre de evento.\n";
+				
+				if (!HayPatrocinador)
+					errores += "Falta nombre de patrocinador.\n";
+				
+				if (!PrecioValido)
+					errores += "El precio debe ser un número decimal positivo y sin '$'. Ej: <b>160.00</b>.\n";
+				
+				if (!FechaCorrecta)
+					errores += "La fecha del evento debe ser igual o despues de hoy.";
+				
+				lblInfo.Markup = "El evento aún no es válido:\n" + errores;
+				
+				cmdProgramar.Sensitive = false;
+			}
+		}
+		
+		protected void OnCmdHoraInicioChanged (object sender, System.EventArgs e)
+		{
+			ValidarEvento();
+		}
+
+		protected void OnCmdHoraFinalChanged (object sender, System.EventArgs e)
+		{
+			ValidarEvento();
+		}
+
+		protected void OnCalFechaEventoDaySelected (object sender, System.EventArgs e)
+		{
+			ValidarEvento();
+		}
+
+		protected void OnTxtPrecioEventoKeyPressEvent (object o, Gtk.KeyPressEventArgs args)
+		{
+			ValidarEvento();
+		}
+
+		protected void OnTxtPatrocinadoPorKeyPressEvent (object o, Gtk.KeyPressEventArgs args)
+		{
+			ValidarEvento();
+		}
+
+		protected void OnTxtinfoContactoKeyPressEvent (object o, Gtk.KeyPressEventArgs args)
+		{
+			ValidarEvento();
+		}
+
+		protected void OnTxtNombreEventoKeyPressEvent (object o, Gtk.KeyPressEventArgs args)
+		{
+			ValidarEvento();
+		}
 	}
 }
 
