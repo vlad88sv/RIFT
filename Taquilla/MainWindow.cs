@@ -136,7 +136,7 @@ public partial class MainWindow : Gtk.Window
 		for (int h = 0; h < 64; h++)	
 				tree.AppendValues (DateTime.Parse("08:00").AddMinutes(15.0*(double)h).ToString("HH:mm",CultureInfo.InvariantCulture),"0", global.maximo_jugadores.ToString());
 						
-		string c = "SELECT COUNT(*) AS 'vendidos', DATE(`fecha_juego`) AS 'fecha', DATE_FORMAT(`fecha_juego`,'%H:%i') AS `hora` FROM `tickets` LEFT JOIN `tipo_boleto` USING(`ID_tipo_boleto`) WHERE `tickets`.`ID_tipo_boleto` IN ("+tiquete.ID_tipo_normal+","+tiquete.ID_tipo_gratis+") AND DATE(`fecha_juego`) = '"+ global.fechaDiaTrabajoFMySQL +"' GROUP BY `fecha_juego` ORDER BY `fecha_juego` ASC, `numero_jugador` ASC";
+		string c = "SELECT COUNT(*) AS 'vendidos', DATE(`fecha_juego`) AS 'fecha', DATE_FORMAT(`fecha_juego`,'%H:%i') AS `hora` FROM `tickets` LEFT JOIN `tipo_boleto` USING(`ID_tipo_boleto`) WHERE `tickets`.`ID_tipo_boleto` <> "+tiquete.ID_tipo_cancelado +" AND `tickets`.`ID_tipo_boleto` <> "+tiquete.ID_tipo_movimiento+" AND `tickets`.`ID_tipo_boleto` <> "+tiquete.ID_tipo_pase+" AND DATE(`fecha_juego`) = '"+ global.fechaDiaTrabajoFMySQL +"' GROUP BY `fecha_juego` ORDER BY `fecha_juego` ASC, `numero_jugador` ASC";
 		if (!MySQL.consultar(c))
 			return;
 		
