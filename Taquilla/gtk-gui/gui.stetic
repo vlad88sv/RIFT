@@ -1494,7 +1494,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
     <property name="MemberName" />
     <property name="WidthRequest">1366</property>
     <property name="HeightRequest">768</property>
-    <property name="Title">RIFT Taquilla - Versión 4.3 - Sintigo</property>
+    <property name="Title">RIFT Taquilla - Versión 4.4 - Calero</property>
     <property name="Icon">stock:stock_notes Menu</property>
     <property name="WindowPosition">Center</property>
     <property name="BorderWidth">2</property>

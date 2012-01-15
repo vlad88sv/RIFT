@@ -60,7 +60,7 @@ public partial class MainWindow
 		this.WidthRequest = 1366;
 		this.HeightRequest = 768;
 		this.Name = "MainWindow";
-		this.Title = "RIFT Taquilla - Versión 4.3 - Sintigo";
+		this.Title = "RIFT Taquilla - Versión 4.4 - Calero";
 		this.Icon = global::Stetic.IconLoader.LoadIcon (this, "stock_notes", global::Gtk.IconSize.Menu);
 		this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 		this.BorderWidth = ((uint)(2));
