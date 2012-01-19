@@ -8,7 +8,7 @@ namespace Taquilla
 		{
 			this.Build ();
 			txtClave.Visibility = false;
-			lblVersion.Text = "Versión " + global.Version;
+			this.Title = "Versión " + global.Version;
 		}
 
 		protected void OnButtonOkClicked (object sender, System.EventArgs e)

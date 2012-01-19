@@ -5,7 +5,6 @@ namespace Taquilla
 	public partial class InicioSesion
 	{
 		private global::Gtk.Label lblInfo1;
-		private global::Gtk.Label lblVersion;
 		private global::Gtk.Label lblInfo;
 		private global::Gtk.Table table1;
 		private global::Gtk.Label label1;
@@ -43,25 +42,15 @@ namespace Taquilla
 			w2.Expand = false;
 			w2.Fill = false;
 			// Container child dialog1_VBox.Gtk.Box+BoxChild
-			this.lblVersion = new global::Gtk.Label ();
-			this.lblVersion.Name = "lblVersion";
-			this.lblVersion.LabelProp = "<span font=\"8.5\" color=\"blue\"></span>";
-			this.lblVersion.UseMarkup = true;
-			w1.Add (this.lblVersion);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(w1 [this.lblVersion]));
-			w3.Position = 1;
-			w3.Expand = false;
-			w3.Fill = false;
-			// Container child dialog1_VBox.Gtk.Box+BoxChild
 			this.lblInfo = new global::Gtk.Label ();
 			this.lblInfo.Name = "lblInfo";
 			this.lblInfo.Ypad = 13;
 			this.lblInfo.LabelProp = "Inicie sesión para desbloquear sistema";
 			w1.Add (this.lblInfo);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(w1 [this.lblInfo]));
-			w4.Position = 2;
-			w4.Expand = false;
-			w4.Fill = false;
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(w1 [this.lblInfo]));
+			w3.Position = 1;
+			w3.Expand = false;
+			w3.Fill = false;
 			// Container child dialog1_VBox.Gtk.Box+BoxChild
 			this.table1 = new global::Gtk.Table (((uint)(2)), ((uint)(2)), false);
 			this.table1.Name = "table1";
@@ -73,20 +62,20 @@ namespace Taquilla
 			this.label1.Xalign = 1F;
 			this.label1.LabelProp = "Usuario";
 			this.table1.Add (this.label1);
-			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1 [this.label1]));
-			w5.XOptions = ((global::Gtk.AttachOptions)(4));
-			w5.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table1 [this.label1]));
+			w4.XOptions = ((global::Gtk.AttachOptions)(4));
+			w4.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.label2 = new global::Gtk.Label ();
 			this.label2.Name = "label2";
 			this.label2.Xalign = 1F;
 			this.label2.LabelProp = "Clave";
 			this.table1.Add (this.label2);
-			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1 [this.label2]));
-			w6.TopAttach = ((uint)(1));
-			w6.BottomAttach = ((uint)(2));
-			w6.XOptions = ((global::Gtk.AttachOptions)(4));
-			w6.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1 [this.label2]));
+			w5.TopAttach = ((uint)(1));
+			w5.BottomAttach = ((uint)(2));
+			w5.XOptions = ((global::Gtk.AttachOptions)(4));
+			w5.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.txtClave = new global::Gtk.Entry ();
 			this.txtClave.CanFocus = true;
@@ -94,12 +83,12 @@ namespace Taquilla
 			this.txtClave.IsEditable = true;
 			this.txtClave.InvisibleChar = '•';
 			this.table1.Add (this.txtClave);
-			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1 [this.txtClave]));
-			w7.TopAttach = ((uint)(1));
-			w7.BottomAttach = ((uint)(2));
-			w7.LeftAttach = ((uint)(1));
-			w7.RightAttach = ((uint)(2));
-			w7.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1 [this.txtClave]));
+			w6.TopAttach = ((uint)(1));
+			w6.BottomAttach = ((uint)(2));
+			w6.LeftAttach = ((uint)(1));
+			w6.RightAttach = ((uint)(2));
+			w6.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.txtUsuario = new global::Gtk.Entry ();
 			this.txtUsuario.CanFocus = true;
@@ -107,21 +96,21 @@ namespace Taquilla
 			this.txtUsuario.IsEditable = true;
 			this.txtUsuario.InvisibleChar = '•';
 			this.table1.Add (this.txtUsuario);
-			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1 [this.txtUsuario]));
-			w8.LeftAttach = ((uint)(1));
-			w8.RightAttach = ((uint)(2));
-			w8.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1 [this.txtUsuario]));
+			w7.LeftAttach = ((uint)(1));
+			w7.RightAttach = ((uint)(2));
+			w7.YOptions = ((global::Gtk.AttachOptions)(4));
 			w1.Add (this.table1);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(w1 [this.table1]));
-			w9.Position = 3;
-			w9.Expand = false;
-			w9.Fill = false;
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(w1 [this.table1]));
+			w8.Position = 2;
+			w8.Expand = false;
+			w8.Fill = false;
 			// Internal child Taquilla.InicioSesion.ActionArea
-			global::Gtk.HButtonBox w10 = this.ActionArea;
-			w10.Name = "dialog1_ActionArea";
-			w10.Spacing = 10;
-			w10.BorderWidth = ((uint)(5));
-			w10.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
+			global::Gtk.HButtonBox w9 = this.ActionArea;
+			w9.Name = "dialog1_ActionArea";
+			w9.Spacing = 10;
+			w9.BorderWidth = ((uint)(5));
+			w9.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonCancel = new global::Gtk.Button ();
 			this.buttonCancel.CanDefault = true;
@@ -131,9 +120,9 @@ namespace Taquilla
 			this.buttonCancel.UseUnderline = true;
 			this.buttonCancel.Label = "gtk-cancel";
 			this.AddActionWidget (this.buttonCancel, -6);
-			global::Gtk.ButtonBox.ButtonBoxChild w11 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w10 [this.buttonCancel]));
-			w11.Expand = false;
-			w11.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w10 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w9 [this.buttonCancel]));
+			w10.Expand = false;
+			w10.Fill = false;
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonOk = new global::Gtk.Button ();
 			this.buttonOk.CanDefault = true;
@@ -141,26 +130,26 @@ namespace Taquilla
 			this.buttonOk.Name = "buttonOk";
 			this.buttonOk.UseUnderline = true;
 			// Container child buttonOk.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w12 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
+			global::Gtk.Alignment w11 = new global::Gtk.Alignment (0.5F, 0.5F, 0F, 0F);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
-			global::Gtk.HBox w13 = new global::Gtk.HBox ();
-			w13.Spacing = 2;
+			global::Gtk.HBox w12 = new global::Gtk.HBox ();
+			w12.Spacing = 2;
 			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Image w14 = new global::Gtk.Image ();
-			w14.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-ok", global::Gtk.IconSize.Menu);
-			w13.Add (w14);
-			// Container child GtkHBox.Gtk.Container+ContainerChild
-			global::Gtk.Label w16 = new global::Gtk.Label ();
-			w16.LabelProp = "_Iniciar";
-			w16.UseUnderline = true;
-			w13.Add (w16);
+			global::Gtk.Image w13 = new global::Gtk.Image ();
+			w13.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-ok", global::Gtk.IconSize.Menu);
 			w12.Add (w13);
-			this.buttonOk.Add (w12);
-			w10.Add (this.buttonOk);
-			global::Gtk.ButtonBox.ButtonBoxChild w20 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w10 [this.buttonOk]));
-			w20.Position = 1;
-			w20.Expand = false;
-			w20.Fill = false;
+			// Container child GtkHBox.Gtk.Container+ContainerChild
+			global::Gtk.Label w15 = new global::Gtk.Label ();
+			w15.LabelProp = "_Iniciar";
+			w15.UseUnderline = true;
+			w12.Add (w15);
+			w11.Add (w12);
+			this.buttonOk.Add (w11);
+			w9.Add (this.buttonOk);
+			global::Gtk.ButtonBox.ButtonBoxChild w19 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w9 [this.buttonOk]));
+			w19.Position = 1;
+			w19.Expand = false;
+			w19.Fill = false;
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}

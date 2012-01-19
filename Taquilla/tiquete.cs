@@ -4,11 +4,12 @@ using Gtk;
 public class Resultadotiquete
 {
 	public bool error = false;
-	public double precio_grabado 	= 0.00;
-	public string transaccion 		= "";
-	public string ID_tipo_boleto 	= "";
-	public string ID_ticket			= "";
-	public string extra 			= "";
+	public double precio_grabado 		= 0.00;
+	public string transaccion 			= "";
+	public string ID_tipo_boleto 		= "";
+	public string ID_ticket				= "";
+	public string extra 				= "";
+	public bool ActualizarListaTiquetes	= false;
 }
 
 public static class tiquete
@@ -47,6 +48,7 @@ public static class tiquete
 		{
 			case ResponseType.DeleteEvent:
 			case ResponseType.Close:
+				Resultado = wPasePromocion.Resultado;
 				Resultado.error = true;
 			break;
 			case ResponseType.Ok:

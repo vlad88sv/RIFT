@@ -216,6 +216,7 @@ public partial class MainWindow : Gtk.Window
 		global.fechaDiaTrabajoMasJuegoFMySQL = global.fechaDiaTrabajoFMySQL.ToString() + " " + DateTime.Parse(tree.GetValue(iter,0).ToString()).ToString("HH:mm:00");
 		global.fechaDiaTrabajoMasJuego = global.fechaDiaTrabajoFMySQL + " " + tree.GetValue(iter,0).ToString();
 		global.HoraJuego = DateTime.Parse(treeTiquetes.Model.GetValue(iter,0).ToString()).ToString("HH:mm");
+		global.HoraJuegoFMySQL = global.HoraJuego + ":00";
 		MessageDialog Mensaje;
 					
 		// Estará lleno el cupo para la hora seleccionada?
@@ -276,6 +277,11 @@ public partial class MainWindow : Gtk.Window
 			// Grabamos la transacción
 			Historial.Transaccion(Resultado.transaccion+":"+global.diaNumero);
 		}
+		
+		
+		// Certificado de evento
+		if (Resultado.ActualizarListaTiquetes == true)
+			CargarTiquetesDelDia();
 	}
 	
 	private void CalcularDisponibilidad(Gtk.TreeIter iter)

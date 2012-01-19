@@ -102,10 +102,57 @@ namespace Taquilla
 			Resultado.transaccion = "promocion";
 			return true;
 		}
+		
+		protected virtual bool CorroborarEvento()
+		{
+			string c = "SELECT COUNT(*) AS existe,`ID_evento`,`certificado`, `duracion` FROM `eventos` WHERE `ID_evento` = '"+(txtIngreso.Text)+"' LIMIT 1";
+			MySQL.consultar(c);
+			MySQL.Reader.Read();
+			
+			if (MySQL.Reader["existe"].ToString() == "0")
+			{
+				msgBox ("Error:","este evento no existe.");
+				return false;
+			}
 
+			if (MySQL.Reader["certificado"].ToString() == "2")
+			{
+				msgBox ("Error:","este certificado de evento ya fue utilizado.");
+				return false;
+			}
+			
+			Console.WriteLine("Certificado: " + MySQL.Reader["certificado"].ToString());
+			
+			if (MySQL.Reader["certificado"].ToString() != "1")
+			{
+				msgBox ("Error:","este no es un certificado de evento");
+				return false;
+			}
+			
+			
+			// Todo bien, procedemos a actualizar el evento con fecha_evento = ahorita
+			// Ademas inválidamos el certificado
+			c = "UPDATE `eventos` SET `certificado`=2,`fecha_evento`='"+global.fechaDiaTrabajoFMySQL+"', hora_inicio='"+global.HoraJuegoFMySQL+"', hora_final='"+(DateTime.Parse(global.HoraJuego) + TimeSpan.Parse(MySQL.Reader["duracion"].ToString())).ToString("HH:mm") + ":00' WHERE `ID_evento`="+MySQL.Reader["ID_evento"].ToString() + " LIMIT 1";
+			MySQL.consultar(c);
+			
+			// Solicitamos que se actualice la lista para que vean el evento, asi no
+			// tenemos que escribir nuestro propio actualizador de lista y reinventar la rueda
+			Resultado.ActualizarListaTiquetes = true;
+			
+			// Siempre retornamos false porque no queremos que se imprima ningun tiquete
+			return false;
+		}
+		
 		protected virtual void OnButtonOkClicked (object sender, System.EventArgs e)
 		{
-			bool valido = rdoPase.Active ? CorroborarPase() : CorroborarCodigo();
+			bool valido = false;
+			
+			if (rdoPase.Active)
+				valido = CorroborarPase();
+			if (rdoPromocion.Active)
+				valido = CorroborarCodigo();
+			if (rdoEvento.Active)
+				valido = CorroborarEvento();
 			
 			Respond (valido ? ResponseType.Ok : ResponseType.Close);
 		}		

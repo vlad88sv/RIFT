@@ -8,6 +8,7 @@ namespace Taquilla
 		private global::Gtk.HBox hbox1;
 		private global::Gtk.RadioButton rdoPase;
 		private global::Gtk.RadioButton rdoPromocion;
+		private global::Gtk.RadioButton rdoEvento;
 		private global::Gtk.Button buttonCancel;
 		private global::Gtk.Button buttonOk;
 		
@@ -16,7 +17,7 @@ namespace Taquilla
 			global::Stetic.Gui.Initialize (this);
 			// Widget Taquilla.PasePromocion
 			this.Name = "Taquilla.PasePromocion";
-			this.Title = "Aplicar pase/ código promoción";
+			this.Title = "Válidar pase, código promocional o certificado de evento";
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			this.Modal = true;
 			// Internal child Taquilla.PasePromocion.VBox
@@ -59,17 +60,27 @@ namespace Taquilla
 			this.hbox1.Add (this.rdoPromocion);
 			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.rdoPromocion]));
 			w4.Position = 1;
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.rdoEvento = new global::Gtk.RadioButton ("Certificado evento");
+			this.rdoEvento.CanFocus = true;
+			this.rdoEvento.Name = "rdoEvento";
+			this.rdoEvento.DrawIndicator = true;
+			this.rdoEvento.UseUnderline = true;
+			this.rdoEvento.Group = this.rdoPase.Group;
+			this.hbox1.Add (this.rdoEvento);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.rdoEvento]));
+			w5.Position = 2;
 			w1.Add (this.hbox1);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(w1 [this.hbox1]));
-			w5.Position = 1;
-			w5.Expand = false;
-			w5.Fill = false;
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(w1 [this.hbox1]));
+			w6.Position = 1;
+			w6.Expand = false;
+			w6.Fill = false;
 			// Internal child Taquilla.PasePromocion.ActionArea
-			global::Gtk.HButtonBox w6 = this.ActionArea;
-			w6.Name = "dialog1_ActionArea";
-			w6.Spacing = 10;
-			w6.BorderWidth = ((uint)(5));
-			w6.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
+			global::Gtk.HButtonBox w7 = this.ActionArea;
+			w7.Name = "dialog1_ActionArea";
+			w7.Spacing = 10;
+			w7.BorderWidth = ((uint)(5));
+			w7.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonCancel = new global::Gtk.Button ();
 			this.buttonCancel.CanDefault = true;
@@ -78,9 +89,9 @@ namespace Taquilla
 			this.buttonCancel.UseUnderline = true;
 			this.buttonCancel.Label = "gtk-cancel";
 			this.AddActionWidget (this.buttonCancel, -6);
-			global::Gtk.ButtonBox.ButtonBoxChild w7 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w6 [this.buttonCancel]));
-			w7.Expand = false;
-			w7.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w8 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w7 [this.buttonCancel]));
+			w8.Expand = false;
+			w8.Fill = false;
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonOk = new global::Gtk.Button ();
 			this.buttonOk.CanDefault = true;
@@ -89,14 +100,14 @@ namespace Taquilla
 			this.buttonOk.UseUnderline = true;
 			this.buttonOk.Label = "gtk-ok";
 			this.AddActionWidget (this.buttonOk, -5);
-			global::Gtk.ButtonBox.ButtonBoxChild w8 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w6 [this.buttonOk]));
-			w8.Position = 1;
-			w8.Expand = false;
-			w8.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w9 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w7 [this.buttonOk]));
+			w9.Position = 1;
+			w9.Expand = false;
+			w9.Fill = false;
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 400;
+			this.DefaultWidth = 411;
 			this.DefaultHeight = 126;
 			this.buttonOk.HasDefault = true;
 			this.Show ();
