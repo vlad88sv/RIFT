@@ -45,6 +45,8 @@ public partial class MainWindow : Gtk.Window
 		/* Proceso que inicia del programa */
 		this.Maximize();
 		
+		this.Title = this.Title + " - Versión " + global.Version;
+		
 		InicioUsuario();
 	
 		reproductor.IniciarMusica();

@@ -11,9 +11,9 @@ namespace Taquilla
 			string ID_ticket = "";
 			string Tiquete = "";
 			
-			if (txtRazonBoletos.Text.Length < 20)
+			if (txtRazonBoletos.Text.Length < 10)
 			{
-				MessageDialog Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Info, ButtonsType.Close, "No es posible generar los pases si no ingresa un motivo. Al menos 20 caracteres.");
+				MessageDialog Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Info, ButtonsType.Close, "No es posible generar los pases si no ingresa un motivo. Al menos 10 caracteres.");
 				Mensaje.Title="Error";
 				Mensaje.Run();
 				Mensaje.Destroy();

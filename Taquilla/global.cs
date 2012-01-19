@@ -9,5 +9,5 @@ public static class global
 	public static string fechaDiaTrabajo = "";
 	public static string HoraJuego = "";
 	public static int diaNumero = 0;
-	
+	public static string Version = "4.4.1 - Calero";
 }
