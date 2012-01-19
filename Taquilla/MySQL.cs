@@ -6,7 +6,7 @@ using Gtk;
 public static class MySQL
 {
 	private static string servidor = "127.0.0.1";
-	private static string MyConString = "SERVER="+servidor+";DATABASE=rift3;USER ID=root;PASSWORD=RIFT;CHARACTER SET=utf8;";
+	private static string MyConString = "SERVER="+servidor+";DATABASE=rift3;USER ID=root;PASSWORD=RIFT;CHARACTER SET=utf8;Treat Tiny As Boolean=False;";
 	private static MySql.Data.MySqlClient.MySqlConnection MyCon = new MySql.Data.MySqlClient.MySqlConnection(MyConString);
 	private static MySql.Data.MySqlClient.MySqlCommand MyCmd = new MySql.Data.MySqlClient.MySqlCommand();
 	public static MySqlDataReader Reader;
