@@ -21,6 +21,9 @@ namespace Taquilla
 		public void IniciarMusica ()
 		{
 			string[] filePaths = Directory.GetFiles(@Environment.GetEnvironmentVariable("HOME")+"/lobby/", "*.mp3", SearchOption.AllDirectories);		
+			
+			if (filePaths.Length == 0) return;
+			
 			string canciones = "'" + string.Join("' '",filePaths) + "'";
 
         	mpg123.FileName = "mpg123";
