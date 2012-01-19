@@ -8,6 +8,7 @@ public static class global
 	public static string fechaDiaTrabajoMasJuego = "";
 	public static string fechaDiaTrabajo = "";
 	public static string HoraJuego = "";
+	public static string HoraJuegoFMySQL = "";
 	public static int diaNumero = 0;
-	public static string Version = "4.4.1 - Calero";
+	public static string Version = "4.5 - Sintigo";
 }
