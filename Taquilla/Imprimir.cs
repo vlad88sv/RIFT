@@ -10,7 +10,6 @@ public static class Imprimidor
 	{
 		Console.WriteLine ("LPR: Open - " + ID_ticket + " " + LPR_Printer + " ~ " + Titulo);
 		string Tiquete = "";
-		LPR_Printer = "PDF";
 		if (LPR_Printer == "")
 		{
 			LPR_Printer = "EPSON-TEXT";
