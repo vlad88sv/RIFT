@@ -157,22 +157,25 @@ public partial class MainWindow : Gtk.Window
 		Console.WriteLine("S1:"+(DateTime.Now.TimeOfDay.TotalMilliseconds-benchmark));
 		
 		// Eventos para hoy?.
-		c = "SELECT `eventos`.`ID_evento`, `eventos`.`precio_evento`, `eventos`.`patrocinado_por`, `eventos`.`nombre_evento`, `eventos`.`notas`, `eventos`.`fecha_evento`,DATE_FORMAT(`eventos`.`hora_inicio`,'%H:%i') AS 'fhora_inicio', DATE_FORMAT(`eventos`.`hora_final`,'%H:%i') AS 'fhora_final', `eventos`.`agregado_por_usuario` FROM `rift3`.`eventos` WHERE `eventos`.`fecha_evento`='"+global.fechaDiaTrabajoFMySQL+"' ORDER BY `eventos`.`hora_inicio`";
+		c = "SELECT `eventos`.`ID_evento`, `eventos`.`precio_evento`, `eventos`.`patrocinado_por`, `eventos`.`nombre_evento`, `eventos`.`notas`, `eventos`.`fecha_evento`,DATE_FORMAT(`eventos`.`hora_inicio`,'%H:%i') AS 'fhora_inicio', DATE_FORMAT(`eventos`.`hora_final`,'%H:%i') AS 'fhora_final' FROM `rift3`.`eventos` WHERE `eventos`.`fecha_evento`='"+global.fechaDiaTrabajoFMySQL+"' ORDER BY `eventos`.`hora_inicio`";
 		MySQL.consultar(c);		
 
 		tree.GetIterFirst(out iter);
-		// Recorremos un evento a la vez
-		while (MySQL.Reader.Read()) {
-			// Encontremos la hora de inicio del evento
-			while (tree.GetValue(iter, 0).ToString() != MySQL.Reader["fhora_inicio"].ToString())
-				tree.IterNext(ref iter);
-
-			while (tree.GetValue(iter, 0).ToString() != MySQL.Reader["fhora_final"].ToString()) {
-				tree.SetValue(iter, 1, global.maximo_jugadores.ToString());
-				tree.SetValue(iter, 3, MySQL.Reader["patrocinado_por"].ToString() + " ~> " + MySQL.Reader["nombre_evento"].ToString());
-				Console.WriteLine(MySQL.Reader["patrocinado_por"].ToString() + " ~> " + MySQL.Reader["nombre_evento"].ToString());
-				tree.IterNext(ref iter);
+		try {
+			// Recorremos un evento a la vez
+			while (MySQL.Reader.Read()) {
+				// Encontremos la hora de inicio del evento
+				while (tree.GetValue(iter, 0).ToString() != MySQL.Reader["fhora_inicio"].ToString())
+					tree.IterNext(ref iter);
+	
+				while (tree.GetValue(iter, 0).ToString() != MySQL.Reader["fhora_final"].ToString()) {
+					tree.SetValue(iter, 1, global.maximo_jugadores.ToString());
+					tree.SetValue(iter, 3, MySQL.Reader["patrocinado_por"].ToString() + " ~> " + MySQL.Reader["nombre_evento"].ToString());
+					tree.IterNext(ref iter);
+				}
 			}
+		} catch {
+			Console.WriteLine("Hay algo malo en la tabla de eventos!");
 		}
 			
 		Console.WriteLine("S3:"+(DateTime.Now.TimeOfDay.TotalMilliseconds-benchmark));
