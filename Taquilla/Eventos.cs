@@ -73,10 +73,11 @@ namespace Taquilla
 			Tiquete +=  Imprimidor.Imprimir ("EVENTO ESPECIAL",1);
 			if (chkCertificado.Active) Tiquete +=  Imprimidor.Imprimir ("***certificado de regalo***",1);
 			if (!chkCertificado.Active) Tiquete +=  Imprimidor.Imprimir ("Fecha de evento",fechaEvento);
-			Tiquete +=  Imprimidor.Imprimir ("Precio evento","$"+txtPrecioEvento.Text);
+			if (!chkCertificado.Active) Tiquete +=  Imprimidor.Imprimir ("Precio evento","$"+txtPrecioEvento.Text);
 			if (!chkCertificado.Active) Tiquete +=  Imprimidor.Imprimir ("Hora de inicio",horaInicio);
 			if (!chkCertificado.Active) Tiquete +=  Imprimidor.Imprimir ("Hora de finalizacion",horaFinal);
-			Tiquete +=  Imprimidor.Imprimir ("Duración",cmbDuracion.ActiveText);
+			Tiquete +=  Imprimidor.Imprimir ("Duracion",((int)(TimeSpan.Parse(cmbDuracion.ActiveText).TotalMinutes / 60)).ToString() + " horas y " + (TimeSpan.Parse(cmbDuracion.ActiveText).TotalMinutes % 60).ToString() + " minutos");
+			Tiquete +=  Imprimidor.Imprimir ("Valido para", global.maximo_jugadores.ToString() + " personas");
 			
 			Tiquete +=  "\n\n\n\n\n__________________\n"+auth.nombre;
 			Imprimidor.Tiquete(Tiquete,ID_evento);
