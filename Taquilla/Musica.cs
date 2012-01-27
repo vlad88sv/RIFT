@@ -34,8 +34,11 @@ namespace Taquilla
 		
 		public void PararMusica ()
 		{
+			try
+			{
 			if (!mpg123Proc.HasExited)
 				mpg123Proc.Kill();
+			} catch {}
 		}
 	}
 }
