@@ -1,9 +1,14 @@
 using System;
 using Gtk;
+
 namespace Taquilla
 {
 	public partial class pases : Gtk.Dialog
 	{
+		Gtk.ListStore lsPerfilPase = new ListStore(typeof(string), typeof(string), typeof(string), typeof(string), typeof(string), typeof(string), typeof(string), typeof(string), typeof(string), typeof(string));
+		Gtk.CellRendererText crt1 = new Gtk.CellRendererText();
+		Gtk.CellRendererText crt2 = new Gtk.CellRendererText();
+		
 		protected virtual void OnButtonOkClicked (object sender, System.EventArgs e)
 		{
 			int Cantidad = int.Parse(txtCantidadDeBoletos.Text);
@@ -30,11 +35,12 @@ namespace Taquilla
 							Convert.ToInt32(chkSabado.Active).ToString();
 			
 			string pase_expiracion = calCaducidad.Date.ToString("yyyy-MM-dd");
-
 			
-			c = "INSERT INTO `pase_razon` (`ID_pase_razon`, `fechatiempo`, `razon`, `cantidad`, `precio`, `caducidad`, `ID_usuario`, `pase_dias_valido`) VALUES (0, NOW(), '"+txtRazonBoletos.Text+"', '"+txtCantidadDeBoletos.Text+"', '"+txtPrecioBoletos.Text+"', '"+pase_expiracion+"', "+auth.ID_usuario+",'"+pase_dias_valido+"')";
+			Gtk.TreeIter iter = new Gtk.TreeIter();
+			cmbPerfilPase.GetActiveIter(out iter);
+			
+			c = "INSERT INTO `pase_razon` (`ID_pase_razon`, `fechatiempo`, `razon`, `cantidad`, `precio`, `caducidad`, `ID_usuario`, `pase_dias_valido`, `ID_perfil`) VALUES (0, NOW(), '"+txtRazonBoletos.Text+"', '"+txtCantidadDeBoletos.Text+"', '"+txtPrecioBoletos.Text+"', '"+pase_expiracion+"', "+auth.ID_usuario+",'"+pase_dias_valido+"','"+lsPerfilPase.GetValue(iter,0).ToString()+"')";
 			MySQL.consultar(c);
-			
 			
 			for (int i=0; i<Cantidad; i++)
 			{
@@ -71,11 +77,48 @@ namespace Taquilla
 				
 				Imprimidor.Tiquete(Tiquete,ID_ticket);
 			}
+			
+			c = "UPDATE `perfil_pases` SET `utilizados` = (`utilizados` + 1) WHERE `ID_perfil` = '" + lsPerfilPase.GetValue(iter,0).ToString() + "'";
+			MySQL.consultar(c);
+			
+			MessageDialog MensajeSalida = new MessageDialog(this, DialogFlags.Modal, MessageType.Info, ButtonsType.Close, "Pases generados.\nEsta ventana se cerrará");
+			MensajeSalida.Title="Éxito";
+			MensajeSalida.Run();
+			MensajeSalida.Destroy();
+			this.Destroy();
 		}
 
 		public pases ()
 		{
 			this.Build ();
+
+			cmbPerfilPase.PackStart(crt1,false);
+			cmbPerfilPase.PackStart(crt2,false);
+			cmbPerfilPase.AddAttribute(crt1, "text", 1);
+			cmbPerfilPase.Model = lsPerfilPase;
+
+			string c = "SELECT `ID_perfil`, `nombre_perfil`, `cantidad_pases`, `dias_validos`, `precio_individual`, `fecha_expiracion`, `razon`, `disponibles`, `ilimitado`, `utilizados` FROM `perfil_pases` WHERE deshabilitado=0";
+			MySQL.consultar(c);
+			
+			while (MySQL.Reader.Read())
+			{
+				lsPerfilPase.AppendValues(
+					MySQL.Reader["ID_perfil"].ToString(),			//0
+					MySQL.Reader["nombre_perfil"].ToString(),		//1
+					MySQL.Reader["cantidad_pases"].ToString(),		//2
+					MySQL.Reader["dias_validos"].ToString(), 		//3
+					MySQL.Reader["precio_individual"].ToString(), 	//4
+					MySQL.Reader["fecha_expiracion"].ToString(), 	//5
+					MySQL.Reader["razon"].ToString(), 				//6
+					MySQL.Reader["disponibles"].ToString(), 		//7
+					MySQL.Reader["ilimitado"].ToString(), 			//8
+					MySQL.Reader["utilizados"].ToString()			//9
+					);
+			}
+			
+			Gtk.TreeIter iter = new Gtk.TreeIter();
+			lsPerfilPase.GetIterFirst(out iter);
+			cmbPerfilPase.SetActiveIter(iter);
 		}
 		
 		protected virtual void OnButtonCancelClicked (object sender, System.EventArgs e)
@@ -84,6 +127,54 @@ namespace Taquilla
 		}
 		
 		
+		protected void OnCmbPerfilPaseChanged (object sender, System.EventArgs e)
+		{
+			MessageDialog Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Info, ButtonsType.Close,"");
+						
+			Gtk.TreeIter iter = new Gtk.TreeIter();
+			cmbPerfilPase.GetActiveIter(out iter);
+			Console.WriteLine(lsPerfilPase.GetValue(iter,0) + " - " + lsPerfilPase.GetValue(iter,1) + " - " + lsPerfilPase.GetValue(iter,8));
+			
+			// Primero probar si aún hay disponibles, si no es ilimitado
+			if ( lsPerfilPase.GetValue(iter,8).ToString() != "1" && int.Parse(lsPerfilPase.GetValue(iter,7).ToString()) <= int.Parse(lsPerfilPase.GetValue(iter,9).ToString()) )
+			{
+				Mensaje.Text="Este pérfil de pase esta agotado.";
+				Mensaje.Title="No hay disponibilidad";
+				Mensaje.Run();
+			}
+			
+			// Si esta disponible entonces cambiar la UI
+			
+			// Cantidad de pases
+			txtCantidadDeBoletos.Text = lsPerfilPase.GetValue(iter,2).ToString();
+			
+			// Días válidos
+			chkDomingo.Active = lsPerfilPase.GetValue	(iter,3).ToString().Substring(0,1) == "1";
+			chkLunes.Active = lsPerfilPase.GetValue		(iter,3).ToString().Substring(1,1) == "1";
+			chkMartes.Active = lsPerfilPase.GetValue	(iter,3).ToString().Substring(2,1) == "1";
+			chkMiercoles.Active = lsPerfilPase.GetValue	(iter,3).ToString().Substring(3,1) == "1";
+			chkJueves.Active = lsPerfilPase.GetValue	(iter,3).ToString().Substring(4,1) == "1";
+			chkViernes.Active = lsPerfilPase.GetValue	(iter,3).ToString().Substring(5,1) == "1";
+			chkSabado.Active = lsPerfilPase.GetValue	(iter,3).ToString().Substring(6,1) == "1";
+			
+			// Precio individual
+			txtPrecioBoletos.Text = lsPerfilPase.GetValue(iter,4).ToString();
+			
+			// Fecha expiración
+			try {
+				double DiasExpiracion = double.Parse(lsPerfilPase.GetValue(iter,5).ToString());
+				calCaducidad.Date = DateTime.Now;
+				calCaducidad.Date.AddDays(DiasExpiracion);
+			} catch {
+				try {calCaducidad.Date = DateTime.Parse(lsPerfilPase.GetValue(iter,5).ToString());} catch {}
+			}
+			
+			// Razón
+			txtRazonBoletos.Text = lsPerfilPase.GetValue(iter,6).ToString();
+			
+			//GC
+			Mensaje.Destroy();
+		}
 	}
 }
 

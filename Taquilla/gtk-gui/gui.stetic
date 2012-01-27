@@ -6,7 +6,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Debug/Taquilla.exe" internal="true" />
+    <widget-library name="../bin/Release/Taquilla.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="Taquilla.Eventos" design-size="740 437">
     <property name="MemberName" />
@@ -1129,7 +1129,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Dialog" id="Taquilla.pases" design-size="453 333">
+  <widget class="Gtk.Dialog" id="Taquilla.pases" design-size="454 331">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Generador de pases</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -1146,14 +1146,39 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
             <child>
               <widget class="Gtk.VBox" id="vbox2">
                 <property name="MemberName" />
-                <property name="Spacing">6</property>
+                <child>
+                  <widget class="Gtk.Label" id="label6">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Perfil de pase</property>
+                  </widget>
+                  <packing>
+                    <property name="Position">0</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.ComboBox" id="cmbPerfilPase">
+                    <property name="MemberName" />
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
+                    <signal name="Changed" handler="OnCmbPerfilPaseChanged" />
+                  </widget>
+                  <packing>
+                    <property name="Position">1</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
                 <child>
                   <widget class="Gtk.Label" id="label1">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">Cantidad de pases</property>
                   </widget>
                   <packing>
-                    <property name="Position">0</property>
+                    <property name="Position">2</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
@@ -1168,7 +1193,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                     <property name="InvisibleChar">●</property>
                   </widget>
                   <packing>
-                    <property name="Position">1</property>
+                    <property name="Position">3</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
@@ -1180,7 +1205,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                     <property name="LabelProp" translatable="yes">Días válidos</property>
                   </widget>
                   <packing>
-                    <property name="Position">2</property>
+                    <property name="Position">4</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
@@ -1361,7 +1386,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                     </child>
                   </widget>
                   <packing>
-                    <property name="Position">3</property>
+                    <property name="Position">5</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
@@ -1377,7 +1402,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                   </widget>
                   <packing>
                     <property name="PackType">End</property>
-                    <property name="Position">4</property>
+                    <property name="Position">6</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
@@ -1392,7 +1417,7 @@ Edición: para editar un evento, hacer clic sobre el elemento en la lista y pres
                   </widget>
                   <packing>
                     <property name="PackType">End</property>
-                    <property name="Position">5</property>
+                    <property name="Position">7</property>
                     <property name="AutoSize">True</property>
                     <property name="Expand">False</property>
                     <property name="Fill">False</property>
