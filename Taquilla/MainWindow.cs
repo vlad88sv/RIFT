@@ -117,12 +117,22 @@ public partial class MainWindow : Gtk.Window
 	private void CargarTiquetesDelDia()
 	{
 		double benchmark = DateTime.Now.TimeOfDay.TotalMilliseconds;
+		MessageDialog Mensaje = new MessageDialog(this, DialogFlags.Modal, MessageType.Info, ButtonsType.Close,"");
 		
 		global.fechaDiaTrabajoFMySQL = calDiaTrabajo.Date.ToString("yyyy-MM-dd");
 		global.fechaDiaTrabajo = calDiaTrabajo.Date.ToString("dd/MM/yyyy");
 		
 		// Precio base del día y número de día
-		MySQL.consultar("SELECT precio, DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w') AS 'diaN' FROM precios_diarios WHERE dia = DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w')");
+		bool retConsulta = MySQL.consultar("SELECT precio, DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w') AS 'diaN' FROM precios_diarios WHERE dia = DATE_FORMAT('"+global.fechaDiaTrabajoFMySQL+"','%w')");
+		
+		if (!retConsulta)
+		{
+			Mensaje.Text="No fue posible realizar la consulta a la base de datos";
+			Mensaje.Title="MySQL Server error";
+			Mensaje.Run();
+			Mensaje.Destroy();
+			return;
+		}
 		MySQL.Reader.Read();
 		tiquete.PrecioBase = double.Parse(MySQL.Reader["precio"].ToString());
 		global.diaNumero = int.Parse(MySQL.Reader["diaN"].ToString());
@@ -191,6 +201,9 @@ public partial class MainWindow : Gtk.Window
 		// Restauramos la visibilidad de la lista (offscreen rendering)
 		treeTiquetes.Model = tree;
 		treeTiquetes.Visible = true;
+		
+		//GC
+		Mensaje.Destroy();
 		Console.WriteLine("S5:"+(DateTime.Now.TimeOfDay.TotalMilliseconds-benchmark));
 	}
 
