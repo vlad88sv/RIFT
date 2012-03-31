@@ -42,10 +42,15 @@ namespace Taquilla
 			c = "INSERT INTO `pase_razon` (`ID_pase_razon`, `fechatiempo`, `razon`, `cantidad`, `precio`, `caducidad`, `ID_usuario`, `pase_dias_valido`, `ID_perfil`) VALUES (0, NOW(), '"+txtRazonBoletos.Text+"', '"+txtCantidadDeBoletos.Text+"', '"+txtPrecioBoletos.Text+"', '"+pase_expiracion+"', "+auth.ID_usuario+",'"+pase_dias_valido+"','"+lsPerfilPase.GetValue(iter,0).ToString()+"')";
 			MySQL.consultar(c);
 			
+			MySQL.consultar("SELECT LAST_INSERT_ID() AS ID_pase_razon");
+			MySQL.Reader.Read();
+			
+			string ID_pase_razon = MySQL.Reader["ID_pase_razon"].ToString();
+			
 			for (int i=0; i<Cantidad; i++)
 			{
 				
-				c = "INSERT INTO tickets (`fecha_juego`,`numero_jugador`,`precio_grabado`,`fecha_vendido`,`ID_tipo_boleto`,`pase_dias_valido`,`pase_expiracion`) VALUES(NOW(), "+ (i+100) +" , '"+txtPrecioBoletos.Text+"', NOW(), 11, '"+pase_dias_valido+"', '"+pase_expiracion+"')";
+				c = "INSERT INTO tickets (`fecha_juego`,`numero_jugador`,`precio_grabado`,`fecha_vendido`,`ID_tipo_boleto`,`pase_dias_valido`,`pase_expiracion`,`ID_pase_razon`) VALUES(NOW(), "+ (i+100) +" , '"+txtPrecioBoletos.Text+"', NOW(), 11, '"+pase_dias_valido+"', '"+pase_expiracion+"', '"+ID_pase_razon+"')";
 				MySQL.consultar(c);
 				
 				c = "SELECT MAX(ID_ticket) AS Last_ID FROM tickets";
