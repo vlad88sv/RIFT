@@ -160,8 +160,12 @@ namespace Taquilla
 
 			Tiquete += "\n\n" + "F._________________________\n"+auth.nombre+"\n\n";
 			
+			// Guardamos la diferencia y el monto a remesar en la tabla CorteZ - para el visor de taquilla
+			MySQL.consultar("INSERT INTO cortez (diferencia, remesa) VALUES('"+diferencia.ToString("0.00")+"','"+txtMontoRemesar.Text+"')");
+			
 			Imprimidor.Tiquete(Tiquete,"9999");
 			Imprimidor.Tiquete(Tiquete,"9999","PDF","CZ-" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+			
 			Historial.Registrar ("Corte Z impreso");
 
 		}
